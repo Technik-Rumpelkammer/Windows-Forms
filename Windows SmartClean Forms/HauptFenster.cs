@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
@@ -16,17 +17,21 @@ namespace Windows_SmartClean_Forms
     public partial class HauptFenster : Form
     {
         readonly bool Minimiert = false;
+        bool Stoppe_Threads = false;
         string Benutzer = Environment.UserName;
         string Benutzer_SID = "";
         string Angem_Benutzer = "";
         string Angem_Benutzer_SID = "";
         List<string> L_Benutzer;
 
+        Thread T_Prozesse;
+        Thread T_Hole_Win10_Stnd_Apps;
+
         Windows_SmartClean.Funktionen.Benutzerverwaltung bv = new Windows_SmartClean.Funktionen.Benutzerverwaltung();
         Windows_SmartClean.Funktionen.lesen_und_schreiben ls = new Windows_SmartClean.Funktionen.lesen_und_schreiben();
         Windows_SmartClean.Funktionen.SystemSaeuberung sauber = new Windows_SmartClean.Funktionen.SystemSaeuberung();
         Windows_SmartClean.Funktionen.Automatisches_Optimieren ao = new Windows_SmartClean.Funktionen.Automatisches_Optimieren();
-        Windows_SmartClean_Forms.Funktionen.Win10 win = new Windows_SmartClean_Forms.Funktionen.Win10();
+        Windows_SmartClean_Forms.Funktionen.Win10 win10 = new Windows_SmartClean_Forms.Funktionen.Win10();
 
         List<string> Gew_Gruppen = new List<string>();
 
@@ -57,9 +62,64 @@ namespace Windows_SmartClean_Forms
 
         void StartFunktionen()
         {
-            Einzelne_Startaufgaben();
             aktualisiere_Benutzer_Und_Gruppen_in_Tree();
             T1_Suche_Nach_Ordnern_Auf_C();
+            T1_Pruefe_Papierkorb();
+            if (Minimiert)
+                WSC_Minimiert();
+            else
+            {
+                Einzelne_Startaufgaben();
+                T_Prozesse = new Thread(aktualisiere_Prozesse);
+                T_Prozesse.IsBackground = true;
+                T_Prozesse.Start();
+                T2_Hole_Startmenu_Apps();
+                T_Hole_Win10_Stnd_Apps = new Thread(Hole_Win10_Stand_Apps);
+                T_Hole_Win10_Stnd_Apps.IsBackground = true;
+                T_Hole_Win10_Stnd_Apps.Start();
+                T1_lbl_Gew_Speicherplatz.Text = ls.Lese_Datenzaehler().ToString("0.00") + " GB";
+            }
+        }
+
+        void Hole_Win10_Stand_Apps()
+        {
+            List<string> Apps = win10.Hole_Win10_StandardApps(); int i = 0;
+            if(Apps.Count > 0)
+            {
+                T2_Win10_checkedListBox_StandardApps.Items.Clear();
+                List<string> Config_Apps = ls.Lese_Konfigdatei("Win10_Std_Apps_Vergleich.txt");
+                foreach (string s in Apps)
+                {
+                    string ss = s;
+                    if (ss.Contains("Microsoft.Windows.") || ss.Contains("Windows.") || ss.Contains("Microsoft."))
+                        ss = ss.Substring(ss.LastIndexOf('.') + 1);
+                    if (ss.Length > 2)
+                        foreach (string g in Config_Apps)
+                            if (g == ss && !g.Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
+                            { T2_Win10_checkedListBox_StandardApps.Items.Add(ss); i++;
+                                //Console.WriteLine("ss: " + ss + "\ng: " + g);
+                            }
+                }
+                T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps: " + i;
+            }
+        }   //  Ende Methode Hole_Win10_Stand_Apps
+
+        void aktualisiere_Prozesse()
+        {
+            Thread.Sleep(1000);
+            while (!Stoppe_Threads)
+            {
+                if (this.InvokeRequired)
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        T1_lbl_AnzahL_Prozesse.Text = ao.Zaehle_Prozesse();
+                    });
+                }
+                else
+                    T1_lbl_AnzahL_Prozesse.Text = ao.Zaehle_Prozesse();
+                Thread.Sleep(500);
+            }
         }
 
         void Einzelne_Startaufgaben()
@@ -87,8 +147,17 @@ namespace Windows_SmartClean_Forms
             T1_AO_dateTimePicker_Startzeit.ShowUpDown = true;
             DateTime date = new DateTime(2015, 02, 19, 20, 0, 0);
             T1_AO_dateTimePicker_Startzeit.Value = date;
+            if (ao.Ist_Task_Vorhanden())
+            { 
+                T1_pic_AO_Status.Image = Windows_SmartClean_Forms.Properties.Resources.task_v;
+                T1_lbl_AO_laeuft_O.Text = "Es läuft eine";
+            }
+            else
+            { T1_pic_AO_Status.Image = Windows_SmartClean_Forms.Properties.Resources.task_nv;
+                T1_lbl_AO_laeuft_O.Text = "Es läuft keine";
+            }
+            
         }
-
 
 
         void WSC_Minimiert()
@@ -332,7 +401,7 @@ namespace Windows_SmartClean_Forms
 
         private void T2_btn_Alle_Windows10_Apps_Entfernen_Click(object sender, EventArgs e)
         {
-            win.Entferne_Win10_Sinnlos_apps();
+            win10.Entferne_Win10_Sinnlos_apps();
         }
 
         public void Aktiviere_Button_Win10_Apps(int Wert)
@@ -345,7 +414,8 @@ namespace Windows_SmartClean_Forms
 
         private void T1_btn_Unnoetige_Ordner_entfernen_Click(object sender, EventArgs e)
         {
-            T1_Ordner_Entfernen();
+            if(T1_checkedListBox_Ordnern.SelectedIndex != -1)
+                T1_Ordner_Entfernen();
         }
 
         private void T1_AO_Starten_Click(object sender, EventArgs e)
@@ -370,13 +440,13 @@ namespace Windows_SmartClean_Forms
         {
             if (ao.Ist_Task_Vorhanden())
             {
-                AO_Image_Gibt_Es_Eine_Aufgabe.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Bilder/ok.png"));
-                AO_btn_Aufgabe_Entfernen.IsEnabled = true;
+                //AO_Image_Gibt_Es_Eine_Aufgabe.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Bilder/ok.png"));
+                //AO_btn_Aufgabe_Entfernen.IsEnabled = true;
             }
             else
             {
-                AO_Image_Gibt_Es_Eine_Aufgabe.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Bilder/nok.png"));
-                AO_btn_Aufgabe_Entfernen.IsEnabled = false;
+                //AO_Image_Gibt_Es_Eine_Aufgabe.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Bilder/nok.png"));
+                //AO_btn_Aufgabe_Entfernen.IsEnabled = false;
             }
         }   //  Ende Mehtode AO_Pruefe_Ob_Es_Eine_Aufgabe_Gibt
 
@@ -391,16 +461,16 @@ namespace Windows_SmartClean_Forms
                     {
                         short interval = 1; short.TryParse(AO_textBox_Interval.Text, out interval);
                         List<string> L_CheckBox = new List<string>();
-                        L_CheckBox.Add("Unnoetige_Ordner:" + AO_1_checkBox_Unnoetige_Ordner.IsChecked.ToString());
-                        L_CheckBox.Add("Papierkorb_Leeren:" + AO_2_checkBox_Papierkorb_leeren.IsChecked.ToString());
-                        L_CheckBox.Add("Temp_Benutzer:" + AO_3_checkBox_Temp_Benutzer_Entf.IsChecked.ToString());
-                        L_CheckBox.Add("Temp_Windows:" + AO_4_checkBox_Temp_Windows_Entf.IsChecked.ToString());
+                        L_CheckBox.Add("Unnoetige_Ordner:" + AO_1_checkBox_Unnoetige_Ordner.Checked.ToString());
+                        L_CheckBox.Add("Papierkorb_Leeren:" + AO_2_checkBox_Papierkorb_leeren.Checked.ToString());
+                        L_CheckBox.Add("Temp_Benutzer:" + AO_3_checkBox_Temp_Benutzer_Entf.Checked.ToString());
+                        L_CheckBox.Add("Temp_Windows:" + AO_4_checkBox_Temp_Windows_Entf.Checked.ToString());
                         var secure = new SecureString();
                         foreach (char c in AO_TextBlock_Passwort.Text)
                         {
                             secure.AppendChar(c);
                         }
-                        if (ao.Erstelle_Aufgabe(AO_comboBox_Benutzer.SelectedItem.ToString(), Benutzer_SID, AO_Starttag.SelectedDate.ToString(), AO_textBox_Startzeit.Text, 1, "", L_CheckBox, secure))
+                        if (ao.Erstelle_Aufgabe(AO_comboBox_Benutzer.SelectedItem.ToString(), T1_lbl_ausfrd_Benutzer.Text, Benutzer_SID, AO_Starttag.Value.ToString(), T1_AO_dateTimePicker_Startzeit.Text, 1, "", L_CheckBox, secure))
                             MessageBox.Show("Aufgabe wurde erfolgreich erstellt!", "Ausgabe erfolgreich erstellt!");
                         else
                             MessageBox.Show("Aufgabe konnte nicht erstellt werden!", "Fehler beim Erstellen der Aufgabe!");
@@ -416,6 +486,56 @@ namespace Windows_SmartClean_Forms
             }
             else
                 MessageBox.Show("Es muss ein gültiges Datum ausgewählt werden!", "Hinweis");
+        }
+
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //
+        //  ´Tab 2, Windows 10
+        //
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        void T2_Hole_Startmenu_Apps()
+        {
+            Win10_checkedListBox_StartmenueProgramme.Items.Clear();
+            List<string> Apps = new List<string>(); Apps = win10.Hole_Startmenue_Apps();
+            if(Apps.Count() > 0)
+            {
+                foreach (string s in Apps)
+                    Win10_checkedListBox_StartmenueProgramme.Items.Add(s);
+            }else
+                Win10_checkedListBox_StartmenueProgramme.Items.Add("Keine Einträge!");
+        }
+
+        private void T2_btn_StandardApps_Wiederherstellen_Click(object sender, EventArgs e)
+        {
+            win10.Win10_StandardApps_WiederHerstellen();
+        }
+
+        void Beende_Threads()
+        {
+            if (T_Prozesse.IsAlive)
+                T_Prozesse.Abort();
+        }
+
+        private void HauptFenster_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Stoppe_Threads = true;
+            Thread.Sleep(200);
+            Beende_Threads();
+        }
+
+        private void T2_pictureBox_Win10_StdApss_Entf_Click(object sender, EventArgs e)
+        {
+            if(T2_Win10_checkedListBox_StandardApps.SelectedIndex != -1)
+            {
+                string s = "";
+                foreach(var item in T2_Win10_checkedListBox_StandardApps.CheckedItems)
+                    s += item.ToString() + "\n";
+                DialogResult Abfrage = MessageBox.Show("Sollen folgende Apps entfernt werden:\n\n" + s,"Sicher?",MessageBoxButtons.YesNo);
+                if(Abfrage == DialogResult.Yes)
+                {
+
+                }
+            }
         }
     }
 }

@@ -31,58 +31,81 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HauptFenster));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.AO_comboBox_Benutzer = new System.Windows.Forms.ComboBox();
-            this.T1_checkedListBox_Ordnern = new System.Windows.Forms.CheckedListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.T1_lbl_AnzahL_Prozesse = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.T1_lbl_Angem_Benutzer = new System.Windows.Forms.Label();
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer = new System.Windows.Forms.Label();
             this.T1_lbl_Dateien_Papierkorb = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.T1_lbl_AO_laeuft_O = new System.Windows.Forms.Label();
+            this.AO_textBox_Interval = new System.Windows.Forms.TextBox();
+            this.AO_4_checkBox_Temp_Windows_Entf = new System.Windows.Forms.CheckBox();
+            this.AO_3_checkBox_Temp_Benutzer_Entf = new System.Windows.Forms.CheckBox();
+            this.AO_2_checkBox_Papierkorb_leeren = new System.Windows.Forms.CheckBox();
+            this.AO_1_checkBox_Unnoetige_Ordner = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.AO_TextBlock_Passwort = new System.Windows.Forms.TextBox();
+            this.T1_AO_Starten = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.T1_AO_dateTimePicker_Startzeit = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.AO_Starttag = new System.Windows.Forms.DateTimePicker();
+            this.AO_comboBox_Benutzer = new System.Windows.Forms.ComboBox();
+            this.T1_btn_Unnoetige_Ordner_entfernen = new System.Windows.Forms.Button();
+            this.T1_checkedListBox_Ordnern = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.T1_tree_Benutzer = new System.Windows.Forms.TreeView();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.T1_btn_Benutzer_Hinzufuegen = new System.Windows.Forms.Button();
             this.T1_comboBox_Gruppenauswahl = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.T1_pic_Benutzer_Hinzufuegen = new System.Windows.Forms.PictureBox();
             this.T1_txt_BH_Name = new System.Windows.Forms.TextBox();
             this.T1_txt_BH_Pass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.T1_lbl_Angem_Benutzer = new System.Windows.Forms.Label();
             this.T1_lbl_ausfrd_Benutzer = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Win10_checkedListBox_StartmenueProgramme = new System.Windows.Forms.CheckedListBox();
             this.T2_btn_Alle_Windows10_Apps_Entfernen = new System.Windows.Forms.Button();
-            this.AO_Starttag = new System.Windows.Forms.DateTimePicker();
-            this.T1_btn_Unnoetige_Ordner_entfernen = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.T1_AO_dateTimePicker_Startzeit = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.T1_AO_Starten = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.AO_TextBlock_Passwort = new System.Windows.Forms.TextBox();
-            this.AO_textBox_Interval = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.T2_btn_StandardApps_Wiederherstellen = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.T2_Win10_checkedListBox_StandardApps = new System.Windows.Forms.CheckedListBox();
+            this.T2_lbl_Windows_Std_Apps = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.T1_lbl_Gew_Speicherplatz = new System.Windows.Forms.Label();
+            this.T1_pic_AO_Status = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.T1_btn_Benutzer_Hinzufuegen = new System.Windows.Forms.Button();
+            this.T1_pic_Benutzer_Hinzufuegen = new System.Windows.Forms.PictureBox();
+            this.T2_pictureBox_Win10_StdApss_Entf = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_AO_Status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -92,66 +115,125 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(815, 442);
+            this.tabControl1.Size = new System.Drawing.Size(815, 491);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.T1_btn_Unnoetige_Ordner_entfernen);
             this.tabPage1.Controls.Add(this.T1_checkedListBox_Ordnern);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.T1_lbl_Dateien_Papierkorb);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.T1_lbl_Anzahl_Tmp_Dateien_Windows);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.T1_GroupBox_Uebersicht_Nutzer_Gruppen);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.T1_lbl_Angem_Benutzer);
             this.tabPage1.Controls.Add(this.T1_lbl_ausfrd_Benutzer);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(807, 416);
+            this.tabPage1.Size = new System.Drawing.Size(807, 465);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Informationen";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // AO_comboBox_Benutzer
+            // groupBox3
             // 
-            this.AO_comboBox_Benutzer.FormattingEnabled = true;
-            this.AO_comboBox_Benutzer.Location = new System.Drawing.Point(127, 73);
-            this.AO_comboBox_Benutzer.Name = "AO_comboBox_Benutzer";
-            this.AO_comboBox_Benutzer.Size = new System.Drawing.Size(200, 24);
-            this.AO_comboBox_Benutzer.TabIndex = 16;
+            this.groupBox3.Controls.Add(this.T1_lbl_Gew_Speicherplatz);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.T1_lbl_AnzahL_Prozesse);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.T1_lbl_Angem_Benutzer);
+            this.groupBox3.Controls.Add(this.T1_lbl_Anzahl_Tmp_Dateien_Windows);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer);
+            this.groupBox3.Controls.Add(this.T1_lbl_Dateien_Papierkorb);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Location = new System.Drawing.Point(6, 32);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(435, 150);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
             // 
-            // T1_checkedListBox_Ordnern
+            // label14
             // 
-            this.T1_checkedListBox_Ordnern.CheckOnClick = true;
-            this.T1_checkedListBox_Ordnern.FormattingEnabled = true;
-            this.T1_checkedListBox_Ordnern.Location = new System.Drawing.Point(255, 13);
-            this.T1_checkedListBox_Ordnern.Name = "T1_checkedListBox_Ordnern";
-            this.T1_checkedListBox_Ordnern.Size = new System.Drawing.Size(186, 123);
-            this.T1_checkedListBox_Ordnern.TabIndex = 15;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(270, 39);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(119, 16);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Aktuelle Prozesse:";
+            // 
+            // T1_lbl_AnzahL_Prozesse
+            // 
+            this.T1_lbl_AnzahL_Prozesse.AutoSize = true;
+            this.T1_lbl_AnzahL_Prozesse.Location = new System.Drawing.Point(395, 39);
+            this.T1_lbl_AnzahL_Prozesse.Name = "T1_lbl_AnzahL_Prozesse";
+            this.T1_lbl_AnzahL_Prozesse.Size = new System.Drawing.Size(26, 16);
+            this.T1_lbl_AnzahL_Prozesse.TabIndex = 15;
+            this.T1_lbl_AnzahL_Prozesse.Text = "xxx";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Angemeldeter Benutzer:";
+            // 
+            // T1_lbl_Angem_Benutzer
+            // 
+            this.T1_lbl_Angem_Benutzer.AutoSize = true;
+            this.T1_lbl_Angem_Benutzer.Location = new System.Drawing.Point(187, 13);
+            this.T1_lbl_Angem_Benutzer.Name = "T1_lbl_Angem_Benutzer";
+            this.T1_lbl_Angem_Benutzer.Size = new System.Drawing.Size(38, 16);
+            this.T1_lbl_Angem_Benutzer.TabIndex = 4;
+            this.T1_lbl_Angem_Benutzer.Text = "xxxxx";
+            // 
+            // T1_lbl_Anzahl_Tmp_Dateien_Windows
+            // 
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.AutoSize = true;
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Location = new System.Drawing.Point(187, 39);
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Name = "T1_lbl_Anzahl_Tmp_Dateien_Windows";
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Size = new System.Drawing.Size(26, 16);
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.TabIndex = 9;
+            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Text = "xxx";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(158, 16);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Windows Temp. Dateien:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 124);
+            this.label11.Location = new System.Drawing.Point(8, 94);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(145, 16);
             this.label11.TabIndex = 14;
             this.label11.Text = "Dateien im Papierkorb:";
             // 
+            // T1_lbl_Anzahl_Tmp_Dateien_Benutzer
+            // 
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.AutoSize = true;
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Location = new System.Drawing.Point(187, 68);
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Name = "T1_lbl_Anzahl_Tmp_Dateien_Benutzer";
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Size = new System.Drawing.Size(26, 16);
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.TabIndex = 11;
+            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Text = "xxx";
+            // 
             // T1_lbl_Dateien_Papierkorb
             // 
             this.T1_lbl_Dateien_Papierkorb.AutoSize = true;
-            this.T1_lbl_Dateien_Papierkorb.Location = new System.Drawing.Point(185, 124);
+            this.T1_lbl_Dateien_Papierkorb.Location = new System.Drawing.Point(187, 94);
             this.T1_lbl_Dateien_Papierkorb.Name = "T1_lbl_Dateien_Papierkorb";
             this.T1_lbl_Dateien_Papierkorb.Size = new System.Drawing.Size(26, 16);
             this.T1_lbl_Dateien_Papierkorb.TabIndex = 13;
@@ -160,43 +242,225 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 98);
+            this.label10.Location = new System.Drawing.Point(8, 68);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(155, 16);
             this.label10.TabIndex = 12;
             this.label10.Text = "Benutzer Temp. Dateien:";
             // 
-            // T1_lbl_Anzahl_Tmp_Dateien_Benutzer
+            // groupBox2
             // 
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.AutoSize = true;
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Location = new System.Drawing.Point(185, 98);
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Name = "T1_lbl_Anzahl_Tmp_Dateien_Benutzer";
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Size = new System.Drawing.Size(26, 16);
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.TabIndex = 11;
-            this.T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Text = "xxx";
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.T1_lbl_AO_laeuft_O);
+            this.groupBox2.Controls.Add(this.T1_pic_AO_Status);
+            this.groupBox2.Controls.Add(this.AO_textBox_Interval);
+            this.groupBox2.Controls.Add(this.AO_4_checkBox_Temp_Windows_Entf);
+            this.groupBox2.Controls.Add(this.AO_3_checkBox_Temp_Benutzer_Entf);
+            this.groupBox2.Controls.Add(this.AO_2_checkBox_Papierkorb_leeren);
+            this.groupBox2.Controls.Add(this.AO_1_checkBox_Unnoetige_Ordner);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.AO_TextBlock_Passwort);
+            this.groupBox2.Controls.Add(this.T1_AO_Starten);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.T1_AO_dateTimePicker_Startzeit);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.AO_Starttag);
+            this.groupBox2.Controls.Add(this.AO_comboBox_Benutzer);
+            this.groupBox2.Location = new System.Drawing.Point(455, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(333, 262);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
             // 
-            // label8
+            // label19
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 69);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(158, 16);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Windows Temp. Dateien:";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(167, 235);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(83, 16);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "Optimierung.";
             // 
-            // T1_lbl_Anzahl_Tmp_Dateien_Windows
+            // T1_lbl_AO_laeuft_O
             // 
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.AutoSize = true;
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Location = new System.Drawing.Point(185, 69);
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Name = "T1_lbl_Anzahl_Tmp_Dateien_Windows";
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Size = new System.Drawing.Size(26, 16);
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.TabIndex = 9;
-            this.T1_lbl_Anzahl_Tmp_Dateien_Windows.Text = "xxx";
+            this.T1_lbl_AO_laeuft_O.AutoSize = true;
+            this.T1_lbl_AO_laeuft_O.Location = new System.Drawing.Point(167, 218);
+            this.T1_lbl_AO_laeuft_O.Name = "T1_lbl_AO_laeuft_O";
+            this.T1_lbl_AO_laeuft_O.Size = new System.Drawing.Size(116, 16);
+            this.T1_lbl_AO_laeuft_O.TabIndex = 37;
+            this.T1_lbl_AO_laeuft_O.Text = "Läuft bereits keine";
+            // 
+            // AO_textBox_Interval
+            // 
+            this.AO_textBox_Interval.Location = new System.Drawing.Point(294, 45);
+            this.AO_textBox_Interval.Name = "AO_textBox_Interval";
+            this.AO_textBox_Interval.Size = new System.Drawing.Size(33, 22);
+            this.AO_textBox_Interval.TabIndex = 30;
+            this.AO_textBox_Interval.Text = "1";
+            // 
+            // AO_4_checkBox_Temp_Windows_Entf
+            // 
+            this.AO_4_checkBox_Temp_Windows_Entf.AutoSize = true;
+            this.AO_4_checkBox_Temp_Windows_Entf.Location = new System.Drawing.Point(12, 165);
+            this.AO_4_checkBox_Temp_Windows_Entf.Name = "AO_4_checkBox_Temp_Windows_Entf";
+            this.AO_4_checkBox_Temp_Windows_Entf.Size = new System.Drawing.Size(232, 20);
+            this.AO_4_checkBox_Temp_Windows_Entf.TabIndex = 36;
+            this.AO_4_checkBox_Temp_Windows_Entf.Text = "Temp. Windows Dateien entfernen";
+            this.AO_4_checkBox_Temp_Windows_Entf.UseVisualStyleBackColor = true;
+            // 
+            // AO_3_checkBox_Temp_Benutzer_Entf
+            // 
+            this.AO_3_checkBox_Temp_Benutzer_Entf.AutoSize = true;
+            this.AO_3_checkBox_Temp_Benutzer_Entf.Location = new System.Drawing.Point(12, 188);
+            this.AO_3_checkBox_Temp_Benutzer_Entf.Name = "AO_3_checkBox_Temp_Benutzer_Entf";
+            this.AO_3_checkBox_Temp_Benutzer_Entf.Size = new System.Drawing.Size(224, 20);
+            this.AO_3_checkBox_Temp_Benutzer_Entf.TabIndex = 35;
+            this.AO_3_checkBox_Temp_Benutzer_Entf.Text = "Temp. Benutzerdateien entfernen";
+            this.AO_3_checkBox_Temp_Benutzer_Entf.UseVisualStyleBackColor = true;
+            // 
+            // AO_2_checkBox_Papierkorb_leeren
+            // 
+            this.AO_2_checkBox_Papierkorb_leeren.AutoSize = true;
+            this.AO_2_checkBox_Papierkorb_leeren.Location = new System.Drawing.Point(12, 122);
+            this.AO_2_checkBox_Papierkorb_leeren.Name = "AO_2_checkBox_Papierkorb_leeren";
+            this.AO_2_checkBox_Papierkorb_leeren.Size = new System.Drawing.Size(135, 20);
+            this.AO_2_checkBox_Papierkorb_leeren.TabIndex = 34;
+            this.AO_2_checkBox_Papierkorb_leeren.Text = "Papierkorb leeren";
+            this.AO_2_checkBox_Papierkorb_leeren.UseVisualStyleBackColor = true;
+            // 
+            // AO_1_checkBox_Unnoetige_Ordner
+            // 
+            this.AO_1_checkBox_Unnoetige_Ordner.AutoSize = true;
+            this.AO_1_checkBox_Unnoetige_Ordner.Location = new System.Drawing.Point(12, 144);
+            this.AO_1_checkBox_Unnoetige_Ordner.Name = "AO_1_checkBox_Unnoetige_Ordner";
+            this.AO_1_checkBox_Unnoetige_Ordner.Size = new System.Drawing.Size(183, 20);
+            this.AO_1_checkBox_Unnoetige_Ordner.TabIndex = 33;
+            this.AO_1_checkBox_Unnoetige_Ordner.Text = "Unnötige Ordner entfernen";
+            this.AO_1_checkBox_Unnoetige_Ordner.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(189, 48);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(101, 16);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "Intervall (Tage):";
+            // 
+            // AO_TextBlock_Passwort
+            // 
+            this.AO_TextBlock_Passwort.Location = new System.Drawing.Point(127, 96);
+            this.AO_TextBlock_Passwort.Name = "AO_TextBlock_Passwort";
+            this.AO_TextBlock_Passwort.PasswordChar = '*';
+            this.AO_TextBlock_Passwort.Size = new System.Drawing.Size(200, 22);
+            this.AO_TextBlock_Passwort.TabIndex = 29;
+            // 
+            // T1_AO_Starten
+            // 
+            this.T1_AO_Starten.Location = new System.Drawing.Point(6, 214);
+            this.T1_AO_Starten.Name = "T1_AO_Starten";
+            this.T1_AO_Starten.Size = new System.Drawing.Size(146, 42);
+            this.T1_AO_Starten.TabIndex = 26;
+            this.T1_AO_Starten.Text = "Optimierung speichern";
+            this.T1_AO_Starten.UseVisualStyleBackColor = true;
+            this.T1_AO_Starten.Click += new System.EventHandler(this.T1_AO_Starten_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(9, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 16);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "Passwort:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.White;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(8, -2);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(206, 18);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Automatische Optimierung";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(8, 73);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 16);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Benutzer:";
+            // 
+            // T1_AO_dateTimePicker_Startzeit
+            // 
+            this.T1_AO_dateTimePicker_Startzeit.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.T1_AO_dateTimePicker_Startzeit.Location = new System.Drawing.Point(127, 44);
+            this.T1_AO_dateTimePicker_Startzeit.Name = "T1_AO_dateTimePicker_Startzeit";
+            this.T1_AO_dateTimePicker_Startzeit.Size = new System.Drawing.Size(58, 22);
+            this.T1_AO_dateTimePicker_Startzeit.TabIndex = 24;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 16);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Startzeit:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 16);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Starttag:";
+            // 
+            // AO_Starttag
+            // 
+            this.AO_Starttag.Location = new System.Drawing.Point(127, 18);
+            this.AO_Starttag.Name = "AO_Starttag";
+            this.AO_Starttag.Size = new System.Drawing.Size(200, 22);
+            this.AO_Starttag.TabIndex = 17;
+            // 
+            // AO_comboBox_Benutzer
+            // 
+            this.AO_comboBox_Benutzer.FormattingEnabled = true;
+            this.AO_comboBox_Benutzer.Location = new System.Drawing.Point(127, 70);
+            this.AO_comboBox_Benutzer.Name = "AO_comboBox_Benutzer";
+            this.AO_comboBox_Benutzer.Size = new System.Drawing.Size(200, 24);
+            this.AO_comboBox_Benutzer.TabIndex = 16;
+            // 
+            // T1_btn_Unnoetige_Ordner_entfernen
+            // 
+            this.T1_btn_Unnoetige_Ordner_entfernen.Location = new System.Drawing.Point(305, 220);
+            this.T1_btn_Unnoetige_Ordner_entfernen.Name = "T1_btn_Unnoetige_Ordner_entfernen";
+            this.T1_btn_Unnoetige_Ordner_entfernen.Size = new System.Drawing.Size(136, 42);
+            this.T1_btn_Unnoetige_Ordner_entfernen.TabIndex = 18;
+            this.T1_btn_Unnoetige_Ordner_entfernen.Text = "Unnötige Ordner entfernen";
+            this.T1_btn_Unnoetige_Ordner_entfernen.UseVisualStyleBackColor = true;
+            this.T1_btn_Unnoetige_Ordner_entfernen.Click += new System.EventHandler(this.T1_btn_Unnoetige_Ordner_entfernen_Click);
+            // 
+            // T1_checkedListBox_Ordnern
+            // 
+            this.T1_checkedListBox_Ordnern.CheckOnClick = true;
+            this.T1_checkedListBox_Ordnern.FormattingEnabled = true;
+            this.T1_checkedListBox_Ordnern.Location = new System.Drawing.Point(6, 188);
+            this.T1_checkedListBox_Ordnern.Name = "T1_checkedListBox_Ordnern";
+            this.T1_checkedListBox_Ordnern.Size = new System.Drawing.Size(286, 89);
+            this.T1_checkedListBox_Ordnern.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 222);
+            this.label7.Location = new System.Drawing.Point(12, 271);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(785, 16);
             this.label7.TabIndex = 8;
@@ -208,21 +472,11 @@
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Controls.Add(this.pictureBox1);
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Controls.Add(this.T1_tree_Benutzer);
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Controls.Add(this.label9);
-            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Location = new System.Drawing.Point(9, 259);
+            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Location = new System.Drawing.Point(9, 308);
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Name = "T1_GroupBox_Uebersicht_Nutzer_Gruppen";
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.Size = new System.Drawing.Size(440, 152);
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.TabIndex = 6;
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(336, 34);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // T1_tree_Benutzer
             // 
@@ -254,24 +508,11 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(455, 259);
+            this.groupBox1.Location = new System.Drawing.Point(455, 308);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(345, 152);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            // 
-            // T1_btn_Benutzer_Hinzufuegen
-            // 
-            this.T1_btn_Benutzer_Hinzufuegen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.T1_btn_Benutzer_Hinzufuegen.Image = ((System.Drawing.Image)(resources.GetObject("T1_btn_Benutzer_Hinzufuegen.Image")));
-            this.T1_btn_Benutzer_Hinzufuegen.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.T1_btn_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(90, 111);
-            this.T1_btn_Benutzer_Hinzufuegen.Name = "T1_btn_Benutzer_Hinzufuegen";
-            this.T1_btn_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(169, 34);
-            this.T1_btn_Benutzer_Hinzufuegen.TabIndex = 7;
-            this.T1_btn_Benutzer_Hinzufuegen.Text = "Benutzer hinzufügen";
-            this.T1_btn_Benutzer_Hinzufuegen.UseVisualStyleBackColor = true;
-            this.T1_btn_Benutzer_Hinzufuegen.Click += new System.EventHandler(this.T1_btn_Benutzer_Hinzufuegen_Click);
             // 
             // T1_comboBox_Gruppenauswahl
             // 
@@ -290,15 +531,6 @@
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 6;
             this.label6.Text = "Gruppe:";
-            // 
-            // T1_pic_Benutzer_Hinzufuegen
-            // 
-            this.T1_pic_Benutzer_Hinzufuegen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_Benutzer_Hinzufuegen.BackgroundImage")));
-            this.T1_pic_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(269, 14);
-            this.T1_pic_Benutzer_Hinzufuegen.Name = "T1_pic_Benutzer_Hinzufuegen";
-            this.T1_pic_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(64, 64);
-            this.T1_pic_Benutzer_Hinzufuegen.TabIndex = 5;
-            this.T1_pic_Benutzer_Hinzufuegen.TabStop = false;
             // 
             // T1_txt_BH_Name
             // 
@@ -343,53 +575,53 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Name:";
             // 
-            // T1_lbl_Angem_Benutzer
-            // 
-            this.T1_lbl_Angem_Benutzer.AutoSize = true;
-            this.T1_lbl_Angem_Benutzer.Location = new System.Drawing.Point(185, 41);
-            this.T1_lbl_Angem_Benutzer.Name = "T1_lbl_Angem_Benutzer";
-            this.T1_lbl_Angem_Benutzer.Size = new System.Drawing.Size(38, 16);
-            this.T1_lbl_Angem_Benutzer.TabIndex = 4;
-            this.T1_lbl_Angem_Benutzer.Text = "xxxxx";
-            // 
             // T1_lbl_ausfrd_Benutzer
             // 
             this.T1_lbl_ausfrd_Benutzer.AutoSize = true;
-            this.T1_lbl_ausfrd_Benutzer.Location = new System.Drawing.Point(185, 13);
+            this.T1_lbl_ausfrd_Benutzer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T1_lbl_ausfrd_Benutzer.ForeColor = System.Drawing.Color.Maroon;
+            this.T1_lbl_ausfrd_Benutzer.Location = new System.Drawing.Point(201, 9);
             this.T1_lbl_ausfrd_Benutzer.Name = "T1_lbl_ausfrd_Benutzer";
-            this.T1_lbl_ausfrd_Benutzer.Size = new System.Drawing.Size(38, 16);
+            this.T1_lbl_ausfrd_Benutzer.Size = new System.Drawing.Size(43, 18);
             this.T1_lbl_ausfrd_Benutzer.TabIndex = 3;
             this.T1_lbl_ausfrd_Benutzer.Text = "xxxxx";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Angemeldeter Benutzer:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 13);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 16);
+            this.label1.Size = new System.Drawing.Size(189, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Benutzer mit Adminrechten:";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.T2_pictureBox_Win10_StdApss_Entf);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.T2_btn_StandardApps_Wiederherstellen);
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.T2_btn_Alle_Windows10_Apps_Entfernen);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(807, 416);
+            this.tabPage2.Size = new System.Drawing.Size(807, 465);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Windows 10";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // Win10_checkedListBox_StartmenueProgramme
+            // 
+            this.Win10_checkedListBox_StartmenueProgramme.CheckOnClick = true;
+            this.Win10_checkedListBox_StartmenueProgramme.FormattingEnabled = true;
+            this.Win10_checkedListBox_StartmenueProgramme.Location = new System.Drawing.Point(6, 29);
+            this.Win10_checkedListBox_StartmenueProgramme.Name = "Win10_checkedListBox_StartmenueProgramme";
+            this.Win10_checkedListBox_StartmenueProgramme.Size = new System.Drawing.Size(308, 208);
+            this.Win10_checkedListBox_StartmenueProgramme.TabIndex = 1;
             // 
             // T2_btn_Alle_Windows10_Apps_Entfernen
             // 
@@ -401,176 +633,167 @@
             this.T2_btn_Alle_Windows10_Apps_Entfernen.UseVisualStyleBackColor = true;
             this.T2_btn_Alle_Windows10_Apps_Entfernen.Click += new System.EventHandler(this.T2_btn_Alle_Windows10_Apps_Entfernen_Click);
             // 
-            // AO_Starttag
+            // groupBox4
             // 
-            this.AO_Starttag.Location = new System.Drawing.Point(127, 21);
-            this.AO_Starttag.Name = "AO_Starttag";
-            this.AO_Starttag.Size = new System.Drawing.Size(200, 22);
-            this.AO_Starttag.TabIndex = 17;
+            this.groupBox4.Controls.Add(this.Win10_checkedListBox_StartmenueProgramme);
+            this.groupBox4.Location = new System.Drawing.Point(6, 219);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(320, 243);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
             // 
-            // T1_btn_Unnoetige_Ordner_entfernen
+            // label20
             // 
-            this.T1_btn_Unnoetige_Ordner_entfernen.Location = new System.Drawing.Point(255, 142);
-            this.T1_btn_Unnoetige_Ordner_entfernen.Name = "T1_btn_Unnoetige_Ordner_entfernen";
-            this.T1_btn_Unnoetige_Ordner_entfernen.Size = new System.Drawing.Size(186, 40);
-            this.T1_btn_Unnoetige_Ordner_entfernen.TabIndex = 18;
-            this.T1_btn_Unnoetige_Ordner_entfernen.Text = "Unnötige Ordner entfernen";
-            this.T1_btn_Unnoetige_Ordner_entfernen.UseVisualStyleBackColor = true;
-            this.T1_btn_Unnoetige_Ordner_entfernen.Click += new System.EventHandler(this.T1_btn_Unnoetige_Ordner_entfernen_Click);
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.White;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(13, 217);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(268, 16);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Startmenü-Verknüpfungen bearbeiten:";
             // 
-            // groupBox2
+            // T2_btn_StandardApps_Wiederherstellen
             // 
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.AO_textBox_Interval);
-            this.groupBox2.Controls.Add(this.AO_TextBlock_Passwort);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.T1_AO_Starten);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.T1_AO_dateTimePicker_Startzeit);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.AO_Starttag);
-            this.groupBox2.Controls.Add(this.AO_comboBox_Benutzer);
-            this.groupBox2.Location = new System.Drawing.Point(455, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 213);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
+            this.T2_btn_StandardApps_Wiederherstellen.Location = new System.Drawing.Point(16, 64);
+            this.T2_btn_StandardApps_Wiederherstellen.Name = "T2_btn_StandardApps_Wiederherstellen";
+            this.T2_btn_StandardApps_Wiederherstellen.Size = new System.Drawing.Size(213, 43);
+            this.T2_btn_StandardApps_Wiederherstellen.TabIndex = 4;
+            this.T2_btn_StandardApps_Wiederherstellen.Text = "StandardApps Wiederherstellen";
+            this.T2_btn_StandardApps_Wiederherstellen.UseVisualStyleBackColor = true;
+            this.T2_btn_StandardApps_Wiederherstellen.Click += new System.EventHandler(this.T2_btn_StandardApps_Wiederherstellen_Click);
             // 
-            // label12
+            // groupBox5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 26);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 16);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Starttag:";
+            this.groupBox5.Controls.Add(this.T2_lbl_Windows_Std_Apps);
+            this.groupBox5.Controls.Add(this.T2_Win10_checkedListBox_StandardApps);
+            this.groupBox5.Location = new System.Drawing.Point(402, 219);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(320, 243);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
             // 
-            // label13
+            // T2_Win10_checkedListBox_StandardApps
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 52);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 16);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "Startzeit:";
+            this.T2_Win10_checkedListBox_StandardApps.CheckOnClick = true;
+            this.T2_Win10_checkedListBox_StandardApps.FormattingEnabled = true;
+            this.T2_Win10_checkedListBox_StandardApps.Location = new System.Drawing.Point(6, 29);
+            this.T2_Win10_checkedListBox_StandardApps.Name = "T2_Win10_checkedListBox_StandardApps";
+            this.T2_Win10_checkedListBox_StandardApps.Size = new System.Drawing.Size(308, 208);
+            this.T2_Win10_checkedListBox_StandardApps.TabIndex = 1;
             // 
-            // label14
+            // T2_lbl_Windows_Std_Apps
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(191, 52);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(29, 16);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "Uhr";
+            this.T2_lbl_Windows_Std_Apps.AutoSize = true;
+            this.T2_lbl_Windows_Std_Apps.BackColor = System.Drawing.Color.White;
+            this.T2_lbl_Windows_Std_Apps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T2_lbl_Windows_Std_Apps.Location = new System.Drawing.Point(6, -2);
+            this.T2_lbl_Windows_Std_Apps.Name = "T2_lbl_Windows_Std_Apps";
+            this.T2_lbl_Windows_Std_Apps.Size = new System.Drawing.Size(198, 16);
+            this.T2_lbl_Windows_Std_Apps.TabIndex = 5;
+            this.T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps";
             // 
-            // T1_AO_dateTimePicker_Startzeit
+            // label22
             // 
-            this.T1_AO_dateTimePicker_Startzeit.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.T1_AO_dateTimePicker_Startzeit.Location = new System.Drawing.Point(127, 47);
-            this.T1_AO_dateTimePicker_Startzeit.Name = "T1_AO_dateTimePicker_Startzeit";
-            this.T1_AO_dateTimePicker_Startzeit.Size = new System.Drawing.Size(58, 22);
-            this.T1_AO_dateTimePicker_Startzeit.TabIndex = 24;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 122);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(172, 16);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Gewonnener Speicherplatz:";
             // 
-            // label15
+            // T1_lbl_Gew_Speicherplatz
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 76);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 16);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "Benutzer:";
+            this.T1_lbl_Gew_Speicherplatz.AutoSize = true;
+            this.T1_lbl_Gew_Speicherplatz.Location = new System.Drawing.Point(187, 122);
+            this.T1_lbl_Gew_Speicherplatz.Name = "T1_lbl_Gew_Speicherplatz";
+            this.T1_lbl_Gew_Speicherplatz.Size = new System.Drawing.Size(26, 16);
+            this.T1_lbl_Gew_Speicherplatz.TabIndex = 18;
+            this.T1_lbl_Gew_Speicherplatz.Text = "xxx";
             // 
-            // label16
+            // T1_pic_AO_Status
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(8, -2);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(206, 18);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "Automatische Optimierung";
+            this.T1_pic_AO_Status.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_AO_Status.BackgroundImage")));
+            this.T1_pic_AO_Status.Location = new System.Drawing.Point(267, 218);
+            this.T1_pic_AO_Status.Name = "T1_pic_AO_Status";
+            this.T1_pic_AO_Status.Size = new System.Drawing.Size(32, 32);
+            this.T1_pic_AO_Status.TabIndex = 20;
+            this.T1_pic_AO_Status.TabStop = false;
             // 
-            // T1_AO_Starten
+            // pictureBox1
             // 
-            this.T1_AO_Starten.Location = new System.Drawing.Point(127, 167);
-            this.T1_AO_Starten.Name = "T1_AO_Starten";
-            this.T1_AO_Starten.Size = new System.Drawing.Size(200, 40);
-            this.T1_AO_Starten.TabIndex = 26;
-            this.T1_AO_Starten.Text = "Automatische Optimierung starten";
-            this.T1_AO_Starten.UseVisualStyleBackColor = true;
-            this.T1_AO_Starten.Click += new System.EventHandler(this.T1_AO_Starten_Click);
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(336, 34);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
-            // label17
+            // T1_btn_Benutzer_Hinzufuegen
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 104);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(66, 16);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "Passwort:";
+            this.T1_btn_Benutzer_Hinzufuegen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.T1_btn_Benutzer_Hinzufuegen.Image = ((System.Drawing.Image)(resources.GetObject("T1_btn_Benutzer_Hinzufuegen.Image")));
+            this.T1_btn_Benutzer_Hinzufuegen.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.T1_btn_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(90, 111);
+            this.T1_btn_Benutzer_Hinzufuegen.Name = "T1_btn_Benutzer_Hinzufuegen";
+            this.T1_btn_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(169, 34);
+            this.T1_btn_Benutzer_Hinzufuegen.TabIndex = 7;
+            this.T1_btn_Benutzer_Hinzufuegen.Text = "Benutzer hinzufügen";
+            this.T1_btn_Benutzer_Hinzufuegen.UseVisualStyleBackColor = true;
+            this.T1_btn_Benutzer_Hinzufuegen.Click += new System.EventHandler(this.T1_btn_Benutzer_Hinzufuegen_Click);
             // 
-            // AO_TextBlock_Passwort
+            // T1_pic_Benutzer_Hinzufuegen
             // 
-            this.AO_TextBlock_Passwort.Location = new System.Drawing.Point(127, 99);
-            this.AO_TextBlock_Passwort.Name = "AO_TextBlock_Passwort";
-            this.AO_TextBlock_Passwort.PasswordChar = '*';
-            this.AO_TextBlock_Passwort.Size = new System.Drawing.Size(100, 22);
-            this.AO_TextBlock_Passwort.TabIndex = 29;
+            this.T1_pic_Benutzer_Hinzufuegen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_Benutzer_Hinzufuegen.BackgroundImage")));
+            this.T1_pic_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(269, 14);
+            this.T1_pic_Benutzer_Hinzufuegen.Name = "T1_pic_Benutzer_Hinzufuegen";
+            this.T1_pic_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(64, 64);
+            this.T1_pic_Benutzer_Hinzufuegen.TabIndex = 5;
+            this.T1_pic_Benutzer_Hinzufuegen.TabStop = false;
             // 
-            // AO_textBox_Interval
+            // T2_pictureBox_Win10_StdApss_Entf
             // 
-            this.AO_textBox_Interval.Location = new System.Drawing.Point(127, 123);
-            this.AO_textBox_Interval.Name = "AO_textBox_Interval";
-            this.AO_textBox_Interval.Size = new System.Drawing.Size(46, 22);
-            this.AO_textBox_Interval.TabIndex = 30;
-            this.AO_textBox_Interval.Text = "1";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(9, 126);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 16);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "Intervall:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(191, 126);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 16);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "Tag(e)";
+            this.T2_pictureBox_Win10_StdApss_Entf.BackgroundImage = global::Windows_SmartClean_Forms.Properties.Resources.entfernen;
+            this.T2_pictureBox_Win10_StdApss_Entf.Location = new System.Drawing.Point(728, 317);
+            this.T2_pictureBox_Win10_StdApss_Entf.Name = "T2_pictureBox_Win10_StdApss_Entf";
+            this.T2_pictureBox_Win10_StdApss_Entf.Size = new System.Drawing.Size(64, 64);
+            this.T2_pictureBox_Win10_StdApss_Entf.TabIndex = 5;
+            this.T2_pictureBox_Win10_StdApss_Entf.TabStop = false;
+            this.T2_pictureBox_Win10_StdApss_Entf.Click += new System.EventHandler(this.T2_pictureBox_Win10_StdApss_Entf_Click);
             // 
             // HauptFenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 450);
+            this.ClientSize = new System.Drawing.Size(820, 501);
             this.Controls.Add(this.tabControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HauptFenster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Windows SmartClean";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HauptFenster_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.ResumeLayout(false);
-            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.ResumeLayout(false);
+            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_AO_Status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,7 +835,6 @@
         private System.Windows.Forms.Button T1_btn_Unnoetige_Ordner_entfernen;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker T1_AO_dateTimePicker_Startzeit;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
@@ -620,9 +842,28 @@
         private System.Windows.Forms.Button T1_AO_Starten;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox AO_TextBlock_Passwort;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox AO_textBox_Interval;
+        private System.Windows.Forms.CheckBox AO_1_checkBox_Unnoetige_Ordner;
+        private System.Windows.Forms.CheckBox AO_2_checkBox_Papierkorb_leeren;
+        private System.Windows.Forms.CheckBox AO_4_checkBox_Temp_Windows_Entf;
+        private System.Windows.Forms.CheckBox AO_3_checkBox_Temp_Benutzer_Entf;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label T1_lbl_AO_laeuft_O;
+        private System.Windows.Forms.PictureBox T1_pic_AO_Status;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label T1_lbl_AnzahL_Prozesse;
+        private System.Windows.Forms.CheckedListBox Win10_checkedListBox_StartmenueProgramme;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button T2_btn_StandardApps_Wiederherstellen;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label T2_lbl_Windows_Std_Apps;
+        private System.Windows.Forms.CheckedListBox T2_Win10_checkedListBox_StandardApps;
+        private System.Windows.Forms.Label T1_lbl_Gew_Speicherplatz;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.PictureBox T2_pictureBox_Win10_StdApss_Entf;
     }
 }
 

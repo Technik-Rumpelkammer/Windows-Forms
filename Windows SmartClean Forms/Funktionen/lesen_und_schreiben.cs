@@ -45,6 +45,10 @@ namespace Windows_SmartClean.Funktionen
                 File.Create(V_Config + "\\ueberfluessige Ordner.txt");
             if (!File.Exists(V_Config + "\\Minimiert.txt"))
                 File.Create(V_Config + "\\Minimiert.txt");
+            if (!File.Exists(V_Config + "\\Win10_Std_Apps.txt"))
+                File.Create(V_Config + "\\Win10_Std_Apps.txt");
+            if (!File.Exists(V_Config + "\\Win10_Std_Apps_Vergleich.txt"))
+                File.Create(V_Config + "\\Win10_Std_Apps_Vergleich.txt");
             if (!File.Exists(V_Ergebnisse + "\\Datenzaehler.txt"))
                 File.Create(V_Ergebnisse + "\\Datenzaehler.txt");
         }

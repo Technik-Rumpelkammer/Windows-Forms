@@ -68,7 +68,7 @@ namespace Windows_SmartClean.Funktionen
 
         public int Ermittle_Dateien_In_Papierkorb(string _Benutzer)
         {
-            string SID = ls.Hole_SID(Benutzer);
+            string SID = ls.Hole_SID(_Benutzer);
             int dateizaehler = 0; long Groesse = 0;
             DirectoryInfo di = new DirectoryInfo(@"C:\$Recycle.bin\" + SID); dateizaehler = 0; Groesse = ls.Ermittle_Verzeichnisgroesse(Environment.ExpandEnvironmentVariables(" %TMP%")) / 1024;
             foreach (FileInfo file in di.GetFiles())
@@ -82,7 +82,7 @@ namespace Windows_SmartClean.Funktionen
             bool Ergebnis = false;
             try
             {
-                string SID = ls.Hole_SID(Benutzer);
+                string SID = ls.Hole_SID(_Benutzer);
                 int dateizaehler = 0; long Groesse = 0;
                 DirectoryInfo di = new DirectoryInfo(@"C:\$Recycle.bin\" + SID); dateizaehler = 0; Groesse = ls.Ermittle_Verzeichnisgroesse(@"C:\$Recycle.bin\" + SID) / 1024;
                 foreach (FileInfo file in di.GetFiles())
