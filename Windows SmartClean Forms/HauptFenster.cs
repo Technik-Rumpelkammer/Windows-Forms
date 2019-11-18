@@ -90,13 +90,14 @@ namespace Windows_SmartClean_Forms
                 List<string> Config_Apps = ls.Lese_Konfigdatei("Win10_Std_Apps_Vergleich.txt");
                 foreach (string s in Apps)
                 {
-                    string ss = s;
-                    if (ss.Contains("Microsoft.Windows.") || ss.Contains("Windows.") || ss.Contains("Microsoft."))
+                    string ss = s.ToUpper(); string sss = s;
+                    if (ss.Contains("MICROSOFT.WINDOWS.") || ss.Contains("WINDOWS.") || ss.Contains("MICROSOFT."))
                         ss = ss.Substring(ss.LastIndexOf('.') + 1);
+                    Console.WriteLine("SS wird ausgegeben: " + ss + "\ns wird ausgegeben: " + s);
                     if (ss.Length > 2)
                         foreach (string g in Config_Apps)
-                            if (g == ss && !g.Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
-                            { T2_Win10_checkedListBox_StandardApps.Items.Add(ss); i++;
+                            if (g.ToUpper() == ss && !g.ToUpper().Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
+                            { T2_Win10_checkedListBox_StandardApps.Items.Add(sss); i++;
                                 //Console.WriteLine("ss: " + ss + "\ng: " + g);
                             }
                 }
@@ -536,6 +537,16 @@ namespace Windows_SmartClean_Forms
 
                 }
             }
+        }
+
+        private void T2_AO_checkBox_Alle_Std_Apps_Auswaehlen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Checked)
+                for(int i = 0; i < T2_Win10_checkedListBox_StandardApps.Items.Count; i++)
+                    T2_Win10_checkedListBox_StandardApps.SetItemChecked(i, true);
+            else
+                for (int i = 0; i < T2_Win10_checkedListBox_StandardApps.Items.Count; i++)
+                    T2_Win10_checkedListBox_StandardApps.SetItemChecked(i, false);
         }
     }
 }

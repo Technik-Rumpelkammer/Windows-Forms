@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.T1_lbl_Gew_Speicherplatz = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.T1_lbl_AnzahL_Prozesse = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +47,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.T1_lbl_AO_laeuft_O = new System.Windows.Forms.Label();
+            this.T1_pic_AO_Status = new System.Windows.Forms.PictureBox();
             this.AO_textBox_Interval = new System.Windows.Forms.TextBox();
             this.AO_4_checkBox_Temp_Windows_Entf = new System.Windows.Forms.CheckBox();
             this.AO_3_checkBox_Temp_Benutzer_Entf = new System.Windows.Forms.CheckBox();
@@ -65,11 +68,14 @@
             this.T1_checkedListBox_Ordnern = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.T1_tree_Benutzer = new System.Windows.Forms.TreeView();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.T1_btn_Benutzer_Hinzufuegen = new System.Windows.Forms.Button();
             this.T1_comboBox_Gruppenauswahl = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.T1_pic_Benutzer_Hinzufuegen = new System.Windows.Forms.PictureBox();
             this.T1_txt_BH_Name = new System.Windows.Forms.TextBox();
             this.T1_txt_BH_Pass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -78,34 +84,29 @@
             this.T1_lbl_ausfrd_Benutzer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.T2_pictureBox_Win10_StdApss_Entf = new System.Windows.Forms.PictureBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.T2_lbl_Windows_Std_Apps = new System.Windows.Forms.Label();
+            this.T2_Win10_checkedListBox_StandardApps = new System.Windows.Forms.CheckedListBox();
+            this.T2_btn_StandardApps_Wiederherstellen = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Win10_checkedListBox_StartmenueProgramme = new System.Windows.Forms.CheckedListBox();
             this.T2_btn_Alle_Windows10_Apps_Entfernen = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.T2_btn_StandardApps_Wiederherstellen = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.T2_Win10_checkedListBox_StandardApps = new System.Windows.Forms.CheckedListBox();
-            this.T2_lbl_Windows_Std_Apps = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.T1_lbl_Gew_Speicherplatz = new System.Windows.Forms.Label();
-            this.T1_pic_AO_Status = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.T1_btn_Benutzer_Hinzufuegen = new System.Windows.Forms.Button();
-            this.T1_pic_Benutzer_Hinzufuegen = new System.Windows.Forms.PictureBox();
-            this.T2_pictureBox_Win10_StdApss_Entf = new System.Windows.Forms.PictureBox();
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.T1_pic_AO_Status)).BeginInit();
+            this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -157,6 +158,24 @@
             this.groupBox3.Size = new System.Drawing.Size(435, 150);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
+            // 
+            // T1_lbl_Gew_Speicherplatz
+            // 
+            this.T1_lbl_Gew_Speicherplatz.AutoSize = true;
+            this.T1_lbl_Gew_Speicherplatz.Location = new System.Drawing.Point(187, 122);
+            this.T1_lbl_Gew_Speicherplatz.Name = "T1_lbl_Gew_Speicherplatz";
+            this.T1_lbl_Gew_Speicherplatz.Size = new System.Drawing.Size(26, 16);
+            this.T1_lbl_Gew_Speicherplatz.TabIndex = 18;
+            this.T1_lbl_Gew_Speicherplatz.Text = "xxx";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 122);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(172, 16);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Gewonnener Speicherplatz:";
             // 
             // label14
             // 
@@ -292,6 +311,15 @@
             this.T1_lbl_AO_laeuft_O.Size = new System.Drawing.Size(116, 16);
             this.T1_lbl_AO_laeuft_O.TabIndex = 37;
             this.T1_lbl_AO_laeuft_O.Text = "Läuft bereits keine";
+            // 
+            // T1_pic_AO_Status
+            // 
+            this.T1_pic_AO_Status.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_AO_Status.BackgroundImage")));
+            this.T1_pic_AO_Status.Location = new System.Drawing.Point(267, 218);
+            this.T1_pic_AO_Status.Name = "T1_pic_AO_Status";
+            this.T1_pic_AO_Status.Size = new System.Drawing.Size(32, 32);
+            this.T1_pic_AO_Status.TabIndex = 20;
+            this.T1_pic_AO_Status.TabStop = false;
             // 
             // AO_textBox_Interval
             // 
@@ -478,6 +506,16 @@
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.TabIndex = 6;
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(336, 34);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // T1_tree_Benutzer
             // 
             this.T1_tree_Benutzer.Location = new System.Drawing.Point(6, 21);
@@ -514,6 +552,19 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
+            // T1_btn_Benutzer_Hinzufuegen
+            // 
+            this.T1_btn_Benutzer_Hinzufuegen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.T1_btn_Benutzer_Hinzufuegen.Image = ((System.Drawing.Image)(resources.GetObject("T1_btn_Benutzer_Hinzufuegen.Image")));
+            this.T1_btn_Benutzer_Hinzufuegen.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.T1_btn_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(90, 111);
+            this.T1_btn_Benutzer_Hinzufuegen.Name = "T1_btn_Benutzer_Hinzufuegen";
+            this.T1_btn_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(169, 34);
+            this.T1_btn_Benutzer_Hinzufuegen.TabIndex = 7;
+            this.T1_btn_Benutzer_Hinzufuegen.Text = "Benutzer hinzufügen";
+            this.T1_btn_Benutzer_Hinzufuegen.UseVisualStyleBackColor = true;
+            this.T1_btn_Benutzer_Hinzufuegen.Click += new System.EventHandler(this.T1_btn_Benutzer_Hinzufuegen_Click);
+            // 
             // T1_comboBox_Gruppenauswahl
             // 
             this.T1_comboBox_Gruppenauswahl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -531,6 +582,15 @@
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 6;
             this.label6.Text = "Gruppe:";
+            // 
+            // T1_pic_Benutzer_Hinzufuegen
+            // 
+            this.T1_pic_Benutzer_Hinzufuegen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_Benutzer_Hinzufuegen.BackgroundImage")));
+            this.T1_pic_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(269, 14);
+            this.T1_pic_Benutzer_Hinzufuegen.Name = "T1_pic_Benutzer_Hinzufuegen";
+            this.T1_pic_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(64, 64);
+            this.T1_pic_Benutzer_Hinzufuegen.TabIndex = 5;
+            this.T1_pic_Benutzer_Hinzufuegen.TabStop = false;
             // 
             // T1_txt_BH_Name
             // 
@@ -614,6 +674,77 @@
             this.tabPage2.Text = "Windows 10";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // T2_pictureBox_Win10_StdApss_Entf
+            // 
+            this.T2_pictureBox_Win10_StdApss_Entf.BackgroundImage = global::Windows_SmartClean_Forms.Properties.Resources.entfernen;
+            this.T2_pictureBox_Win10_StdApss_Entf.Location = new System.Drawing.Point(728, 317);
+            this.T2_pictureBox_Win10_StdApss_Entf.Name = "T2_pictureBox_Win10_StdApss_Entf";
+            this.T2_pictureBox_Win10_StdApss_Entf.Size = new System.Drawing.Size(64, 64);
+            this.T2_pictureBox_Win10_StdApss_Entf.TabIndex = 5;
+            this.T2_pictureBox_Win10_StdApss_Entf.TabStop = false;
+            this.T2_pictureBox_Win10_StdApss_Entf.Click += new System.EventHandler(this.T2_pictureBox_Win10_StdApss_Entf_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.White;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(13, 217);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(268, 16);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Startmenü-Verknüpfungen bearbeiten:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen);
+            this.groupBox5.Controls.Add(this.T2_lbl_Windows_Std_Apps);
+            this.groupBox5.Controls.Add(this.T2_Win10_checkedListBox_StandardApps);
+            this.groupBox5.Location = new System.Drawing.Point(402, 219);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(320, 243);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            // 
+            // T2_lbl_Windows_Std_Apps
+            // 
+            this.T2_lbl_Windows_Std_Apps.AutoSize = true;
+            this.T2_lbl_Windows_Std_Apps.BackColor = System.Drawing.Color.White;
+            this.T2_lbl_Windows_Std_Apps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T2_lbl_Windows_Std_Apps.Location = new System.Drawing.Point(6, -2);
+            this.T2_lbl_Windows_Std_Apps.Name = "T2_lbl_Windows_Std_Apps";
+            this.T2_lbl_Windows_Std_Apps.Size = new System.Drawing.Size(198, 16);
+            this.T2_lbl_Windows_Std_Apps.TabIndex = 5;
+            this.T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps";
+            // 
+            // T2_Win10_checkedListBox_StandardApps
+            // 
+            this.T2_Win10_checkedListBox_StandardApps.CheckOnClick = true;
+            this.T2_Win10_checkedListBox_StandardApps.FormattingEnabled = true;
+            this.T2_Win10_checkedListBox_StandardApps.Location = new System.Drawing.Point(6, 46);
+            this.T2_Win10_checkedListBox_StandardApps.Name = "T2_Win10_checkedListBox_StandardApps";
+            this.T2_Win10_checkedListBox_StandardApps.Size = new System.Drawing.Size(308, 191);
+            this.T2_Win10_checkedListBox_StandardApps.TabIndex = 1;
+            // 
+            // T2_btn_StandardApps_Wiederherstellen
+            // 
+            this.T2_btn_StandardApps_Wiederherstellen.Location = new System.Drawing.Point(16, 64);
+            this.T2_btn_StandardApps_Wiederherstellen.Name = "T2_btn_StandardApps_Wiederherstellen";
+            this.T2_btn_StandardApps_Wiederherstellen.Size = new System.Drawing.Size(213, 43);
+            this.T2_btn_StandardApps_Wiederherstellen.TabIndex = 4;
+            this.T2_btn_StandardApps_Wiederherstellen.Text = "StandardApps Wiederherstellen";
+            this.T2_btn_StandardApps_Wiederherstellen.UseVisualStyleBackColor = true;
+            this.T2_btn_StandardApps_Wiederherstellen.Click += new System.EventHandler(this.T2_btn_StandardApps_Wiederherstellen_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.Win10_checkedListBox_StartmenueProgramme);
+            this.groupBox4.Location = new System.Drawing.Point(6, 219);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(320, 243);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            // 
             // Win10_checkedListBox_StartmenueProgramme
             // 
             this.Win10_checkedListBox_StartmenueProgramme.CheckOnClick = true;
@@ -633,134 +764,16 @@
             this.T2_btn_Alle_Windows10_Apps_Entfernen.UseVisualStyleBackColor = true;
             this.T2_btn_Alle_Windows10_Apps_Entfernen.Click += new System.EventHandler(this.T2_btn_Alle_Windows10_Apps_Entfernen_Click);
             // 
-            // groupBox4
+            // T2_AO_checkBox_Alle_Std_Apps_Auswaehlen
             // 
-            this.groupBox4.Controls.Add(this.Win10_checkedListBox_StartmenueProgramme);
-            this.groupBox4.Location = new System.Drawing.Point(6, 219);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(320, 243);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(13, 217);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(268, 16);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "Startmenü-Verknüpfungen bearbeiten:";
-            // 
-            // T2_btn_StandardApps_Wiederherstellen
-            // 
-            this.T2_btn_StandardApps_Wiederherstellen.Location = new System.Drawing.Point(16, 64);
-            this.T2_btn_StandardApps_Wiederherstellen.Name = "T2_btn_StandardApps_Wiederherstellen";
-            this.T2_btn_StandardApps_Wiederherstellen.Size = new System.Drawing.Size(213, 43);
-            this.T2_btn_StandardApps_Wiederherstellen.TabIndex = 4;
-            this.T2_btn_StandardApps_Wiederherstellen.Text = "StandardApps Wiederherstellen";
-            this.T2_btn_StandardApps_Wiederherstellen.UseVisualStyleBackColor = true;
-            this.T2_btn_StandardApps_Wiederherstellen.Click += new System.EventHandler(this.T2_btn_StandardApps_Wiederherstellen_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.T2_lbl_Windows_Std_Apps);
-            this.groupBox5.Controls.Add(this.T2_Win10_checkedListBox_StandardApps);
-            this.groupBox5.Location = new System.Drawing.Point(402, 219);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(320, 243);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
-            // 
-            // T2_Win10_checkedListBox_StandardApps
-            // 
-            this.T2_Win10_checkedListBox_StandardApps.CheckOnClick = true;
-            this.T2_Win10_checkedListBox_StandardApps.FormattingEnabled = true;
-            this.T2_Win10_checkedListBox_StandardApps.Location = new System.Drawing.Point(6, 29);
-            this.T2_Win10_checkedListBox_StandardApps.Name = "T2_Win10_checkedListBox_StandardApps";
-            this.T2_Win10_checkedListBox_StandardApps.Size = new System.Drawing.Size(308, 208);
-            this.T2_Win10_checkedListBox_StandardApps.TabIndex = 1;
-            // 
-            // T2_lbl_Windows_Std_Apps
-            // 
-            this.T2_lbl_Windows_Std_Apps.AutoSize = true;
-            this.T2_lbl_Windows_Std_Apps.BackColor = System.Drawing.Color.White;
-            this.T2_lbl_Windows_Std_Apps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.T2_lbl_Windows_Std_Apps.Location = new System.Drawing.Point(6, -2);
-            this.T2_lbl_Windows_Std_Apps.Name = "T2_lbl_Windows_Std_Apps";
-            this.T2_lbl_Windows_Std_Apps.Size = new System.Drawing.Size(198, 16);
-            this.T2_lbl_Windows_Std_Apps.TabIndex = 5;
-            this.T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 122);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(172, 16);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "Gewonnener Speicherplatz:";
-            // 
-            // T1_lbl_Gew_Speicherplatz
-            // 
-            this.T1_lbl_Gew_Speicherplatz.AutoSize = true;
-            this.T1_lbl_Gew_Speicherplatz.Location = new System.Drawing.Point(187, 122);
-            this.T1_lbl_Gew_Speicherplatz.Name = "T1_lbl_Gew_Speicherplatz";
-            this.T1_lbl_Gew_Speicherplatz.Size = new System.Drawing.Size(26, 16);
-            this.T1_lbl_Gew_Speicherplatz.TabIndex = 18;
-            this.T1_lbl_Gew_Speicherplatz.Text = "xxx";
-            // 
-            // T1_pic_AO_Status
-            // 
-            this.T1_pic_AO_Status.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_AO_Status.BackgroundImage")));
-            this.T1_pic_AO_Status.Location = new System.Drawing.Point(267, 218);
-            this.T1_pic_AO_Status.Name = "T1_pic_AO_Status";
-            this.T1_pic_AO_Status.Size = new System.Drawing.Size(32, 32);
-            this.T1_pic_AO_Status.TabIndex = 20;
-            this.T1_pic_AO_Status.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(336, 34);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // T1_btn_Benutzer_Hinzufuegen
-            // 
-            this.T1_btn_Benutzer_Hinzufuegen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.T1_btn_Benutzer_Hinzufuegen.Image = ((System.Drawing.Image)(resources.GetObject("T1_btn_Benutzer_Hinzufuegen.Image")));
-            this.T1_btn_Benutzer_Hinzufuegen.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.T1_btn_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(90, 111);
-            this.T1_btn_Benutzer_Hinzufuegen.Name = "T1_btn_Benutzer_Hinzufuegen";
-            this.T1_btn_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(169, 34);
-            this.T1_btn_Benutzer_Hinzufuegen.TabIndex = 7;
-            this.T1_btn_Benutzer_Hinzufuegen.Text = "Benutzer hinzufügen";
-            this.T1_btn_Benutzer_Hinzufuegen.UseVisualStyleBackColor = true;
-            this.T1_btn_Benutzer_Hinzufuegen.Click += new System.EventHandler(this.T1_btn_Benutzer_Hinzufuegen_Click);
-            // 
-            // T1_pic_Benutzer_Hinzufuegen
-            // 
-            this.T1_pic_Benutzer_Hinzufuegen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("T1_pic_Benutzer_Hinzufuegen.BackgroundImage")));
-            this.T1_pic_Benutzer_Hinzufuegen.Location = new System.Drawing.Point(269, 14);
-            this.T1_pic_Benutzer_Hinzufuegen.Name = "T1_pic_Benutzer_Hinzufuegen";
-            this.T1_pic_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(64, 64);
-            this.T1_pic_Benutzer_Hinzufuegen.TabIndex = 5;
-            this.T1_pic_Benutzer_Hinzufuegen.TabStop = false;
-            // 
-            // T2_pictureBox_Win10_StdApss_Entf
-            // 
-            this.T2_pictureBox_Win10_StdApss_Entf.BackgroundImage = global::Windows_SmartClean_Forms.Properties.Resources.entfernen;
-            this.T2_pictureBox_Win10_StdApss_Entf.Location = new System.Drawing.Point(728, 317);
-            this.T2_pictureBox_Win10_StdApss_Entf.Name = "T2_pictureBox_Win10_StdApss_Entf";
-            this.T2_pictureBox_Win10_StdApss_Entf.Size = new System.Drawing.Size(64, 64);
-            this.T2_pictureBox_Win10_StdApss_Entf.TabIndex = 5;
-            this.T2_pictureBox_Win10_StdApss_Entf.TabStop = false;
-            this.T2_pictureBox_Win10_StdApss_Entf.Click += new System.EventHandler(this.T2_pictureBox_Win10_StdApss_Entf_Click);
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.AutoSize = true;
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Location = new System.Drawing.Point(8, 21);
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Name = "T2_AO_checkBox_Alle_Std_Apps_Auswaehlen";
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Size = new System.Drawing.Size(117, 20);
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.TabIndex = 6;
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Text = "Alle auswählen";
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.UseVisualStyleBackColor = true;
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.CheckedChanged += new System.EventHandler(this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen_CheckedChanged);
             // 
             // HauptFenster
             // 
@@ -781,19 +794,19 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_AO_Status)).EndInit();
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.ResumeLayout(false);
             this.T1_GroupBox_Uebersicht_Nutzer_Gruppen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_AO_Status)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -864,6 +877,7 @@
         private System.Windows.Forms.Label T1_lbl_Gew_Speicherplatz;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox T2_pictureBox_Win10_StdApss_Entf;
+        private System.Windows.Forms.CheckBox T2_AO_checkBox_Alle_Std_Apps_Auswaehlen;
     }
 }
 
