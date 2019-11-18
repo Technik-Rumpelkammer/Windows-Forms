@@ -1,2 +1,2 @@
 TaskScheduler Download: 
-Eingeben in die VS Paket-Manager-Konsole: Install-Package Microsoft.Win32.TaskScheduler -Version 2.2.0.3
+Eingeben in die VS Paket-Manager-Konsole: Install-Package TaskScheduler -Version 2.8.17
