@@ -112,5 +112,31 @@ namespace Windows_SmartClean_Forms.Funktionen
                 Console.WriteLine("Finished!");
             }
         }
+        public string Entferne_Apps(List<string> Apps)
+        {
+            string Befehl = "Get-AppxPackage"; string ergebnis = "";
+            foreach(string s in Apps)
+                Befehl += " | where-object {$_.name -notlike \"*" + s + "*\"}";
+            Befehl += " | Remove-AppxPackage";
+
+            using (PowerShell PowerShellInstance = PowerShell.Create())
+            {
+
+                PSDataCollection<PSObject> outputCollection = new PSDataCollection<PSObject>();
+
+                PowerShellInstance.AddScript(Befehl);
+                IAsyncResult result = PowerShellInstance.BeginInvoke<PSObject, PSObject>(null, outputCollection);
+
+                while (result.IsCompleted == false)
+                {
+                    //Console.WriteLine("Hole StandardApps... Bitte warten");
+                }
+
+                foreach (PSObject outputItem in outputCollection)
+                    ergebnis = outputItem.ToString();
+            }   //  Ende using
+
+            return ergebnis;
+        }   //  Ende Methode Entferne_Apps
     }
 }

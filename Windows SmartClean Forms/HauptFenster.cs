@@ -528,13 +528,18 @@ namespace Windows_SmartClean_Forms
         {
             if(T2_Win10_checkedListBox_StandardApps.SelectedIndex != -1)
             {
+                List<string> Nicht_Entfernen = new List<string>();
                 string s = "";
-                foreach(var item in T2_Win10_checkedListBox_StandardApps.CheckedItems)
-                    s += item.ToString() + "\n";
+                foreach (var item in T2_Win10_checkedListBox_StandardApps.CheckedItems)
+                { s += item.ToString() + "\n"; }
                 DialogResult Abfrage = MessageBox.Show("Sollen folgende Apps entfernt werden:\n\n" + s,"Sicher?",MessageBoxButtons.YesNo);
                 if(Abfrage == DialogResult.Yes)
                 {
+                    foreach (object item in T2_Win10_checkedListBox_StandardApps.Items)
+                        if (!T2_Win10_checkedListBox_StandardApps.CheckedItems.Contains(item))
+                            Nicht_Entfernen.Add(item.ToString());
 
+                    win10.Entferne_Apps(Nicht_Entfernen);
                 }
             }
         }
