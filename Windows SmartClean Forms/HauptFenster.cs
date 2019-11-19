@@ -86,22 +86,52 @@ namespace Windows_SmartClean_Forms
             List<string> Apps = win10.Hole_Win10_StandardApps(); int i = 0;
             if(Apps.Count > 0)
             {
-                T2_Win10_checkedListBox_StandardApps.Items.Clear();
-                List<string> Config_Apps = ls.Lese_Konfigdatei("Win10_Std_Apps_Vergleich.txt");
-                foreach (string s in Apps)
+                if (this.InvokeRequired)
                 {
-                    string ss = s.ToUpper(); string sss = s;
-                    if (ss.Contains("MICROSOFT.WINDOWS.") || ss.Contains("WINDOWS.") || ss.Contains("MICROSOFT."))
-                        ss = ss.Substring(ss.LastIndexOf('.') + 1);
-                    Console.WriteLine("SS wird ausgegeben: " + ss + "\ns wird ausgegeben: " + s);
-                    if (ss.Length > 2)
-                        foreach (string g in Config_Apps)
-                            if (g.ToUpper() == ss && !g.ToUpper().Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
-                            { T2_Win10_checkedListBox_StandardApps.Items.Add(sss); i++;
-                                //Console.WriteLine("ss: " + ss + "\ng: " + g);
-                            }
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        T2_Win10_checkedListBox_StandardApps.Items.Clear();
+                        List<string> Config_Apps = ls.Lese_Konfigdatei("Win10_Std_Apps_Vergleich.txt");
+                        foreach (string s in Apps)
+                        {
+                            string ss = s.ToUpper(); string sss = s;
+                            if (ss.Contains("MICROSOFT.WINDOWS.") || ss.Contains("WINDOWS.") || ss.Contains("MICROSOFT."))
+                                ss = ss.Substring(ss.LastIndexOf('.') + 1);
+                           // Console.WriteLine("SS wird ausgegeben: " + ss + "\ns wird ausgegeben: " + s);
+                            if (ss.Length > 2)
+                                foreach (string g in Config_Apps)
+                                    if (g.ToUpper() == ss && !g.ToUpper().Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
+                                    {
+                                        if (sss.Contains("Microsoft."))
+                                            sss = sss.Substring(sss.LastIndexOf('.') + 1);
+                                        T2_Win10_checkedListBox_StandardApps.Items.Add(sss); i++;
+                                        //Console.WriteLine("ss: " + ss + "\ng: " + g);
+                                    }
+                        }
+                        T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps: " + i;
+                    });
                 }
-                T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps: " + i;
+                else
+                {
+                    T2_Win10_checkedListBox_StandardApps.Items.Clear();
+                    List<string> Config_Apps = ls.Lese_Konfigdatei("Win10_Std_Apps_Vergleich.txt");
+                    foreach (string s in Apps)
+                    {
+                        string ss = s.ToUpper(); string sss = s;
+                        if (ss.Contains("MICROSOFT.WINDOWS.") || ss.Contains("WINDOWS.") || ss.Contains("MICROSOFT."))
+                            ss = ss.Substring(ss.LastIndexOf('.') + 1);
+                        //Console.WriteLine("SS wird ausgegeben: " + ss + "\ns wird ausgegeben: " + s);
+                        if (ss.Length > 2)
+                            foreach (string g in Config_Apps)
+                                if (g.ToUpper() == ss && !g.ToUpper().Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
+                                {
+                                    T2_Win10_checkedListBox_StandardApps.Items.Add(sss); i++;
+                                    //Console.WriteLine("ss: " + ss + "\ng: " + g);
+                                }
+                    }
+                    T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps: " + i;
+                }
+                
             }
         }   //  Ende Methode Hole_Win10_Stand_Apps
 
@@ -526,21 +556,16 @@ namespace Windows_SmartClean_Forms
 
         private void T2_pictureBox_Win10_StdApss_Entf_Click(object sender, EventArgs e)
         {
-            if(T2_Win10_checkedListBox_StandardApps.SelectedIndex != -1)
+            if(T2_Win10_checkedListBox_StandardApps.SelectedIndex != -1 || T2_Win10_checkedListBox_StandardApps.CheckedItems.Count > 0)
             {
                 List<string> Nicht_Entfernen = new List<string>();
                 string s = "";
                 foreach (var item in T2_Win10_checkedListBox_StandardApps.CheckedItems)
-                { s += item.ToString() + "\n"; }
+                { s += item.ToString() + "\n"; Nicht_Entfernen.Add(item.ToString()); }
                 DialogResult Abfrage = MessageBox.Show("Sollen folgende Apps entfernt werden:\n\n" + s,"Sicher?",MessageBoxButtons.YesNo);
                 if(Abfrage == DialogResult.Yes)
-                {
-                    foreach (object item in T2_Win10_checkedListBox_StandardApps.Items)
-                        if (!T2_Win10_checkedListBox_StandardApps.CheckedItems.Contains(item))
-                            Nicht_Entfernen.Add(item.ToString());
-
                     win10.Entferne_Apps(Nicht_Entfernen);
-                }
+                Hole_Win10_Stand_Apps();
             }
         }
 
