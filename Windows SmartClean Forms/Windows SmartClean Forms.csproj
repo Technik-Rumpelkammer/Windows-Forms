@@ -98,6 +98,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
+    <None Include="Dokumente\Set-Privacy.ps1" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -140,6 +141,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hilfe_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dokumente\Minimiert.txt" />
+    <Content Include="Dokumente\ueberfluessige Ordner.txt" />
+    <Content Include="Dokumente\Win10_Std_Apps.txt" />
+    <Content Include="Dokumente\Win10_Std_Apps_Vergleich.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

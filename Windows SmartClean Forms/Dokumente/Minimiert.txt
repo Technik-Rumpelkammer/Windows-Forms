@@ -1,0 +1,4 @@
+Unnoetige_Ordner:True
+Papierkorb_Leeren:True
+Temp_Benutzer:True
+Temp_Windows:True
