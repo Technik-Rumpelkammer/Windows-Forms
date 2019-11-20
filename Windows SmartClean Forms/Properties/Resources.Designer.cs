@@ -63,6 +63,16 @@ namespace Windows_SmartClean_Forms.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _39 {
+            get {
+                object obj = ResourceManager.GetObject("39", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap entfernen {
             get {
                 object obj = ResourceManager.GetObject("entfernen", resourceCulture);
@@ -106,6 +116,16 @@ namespace Windows_SmartClean_Forms.Properties {
         internal static System.Drawing.Bitmap task_v {
             get {
                 object obj = ResourceManager.GetObject("task_v", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap win10 {
+            get {
+                object obj = ResourceManager.GetObject("win10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

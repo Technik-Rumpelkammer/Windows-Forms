@@ -71,6 +71,9 @@ namespace Windows_SmartClean_Forms
             {
                 Einzelne_Startaufgaben();
                 Pruefe_Das_Sicherheitsscript();
+                T_Hole_Benutzer = new Thread(aktualisiere_Benutzer_Und_Gruppen_in_Tree);
+                T_Hole_Benutzer.IsBackground = true;
+                T_Hole_Benutzer.Start();
                 T_Prozesse = new Thread(aktualisiere_Prozesse);
                 T_Prozesse.IsBackground = true;
                 T_Prozesse.Start();
@@ -79,9 +82,6 @@ namespace Windows_SmartClean_Forms
                 T_Hole_Win10_Stnd_Apps.Start();
                 T2_Hole_Startmenu_Apps();
                 T1_lbl_Gew_Speicherplatz.Text = ls.Lese_Datenzaehler().ToString("0.00") + " GB";
-                T_Hole_Benutzer = new Thread(aktualisiere_Benutzer_Und_Gruppen_in_Tree);
-                T_Hole_Benutzer.IsBackground = true;
-                T_Hole_Benutzer.Start();
             }
         }
 
@@ -173,13 +173,7 @@ namespace Windows_SmartClean_Forms
             T1_lbl_Anzahl_Tmp_Dateien_Benutzer.Text = ls.Ermittel_Dateien_in_Verzeichnis("C:\\Users\\" + Benutzer + "\\AppData\\Local\\Temp\\").ToString();
             int a = ls.Ermittel_Dateien_in_Verzeichnis(Environment.ExpandEnvironmentVariables("%SYSTEMROOT%\\Temp")); a += ls.Ermittel_Dateien_in_Verzeichnis(Environment.ExpandEnvironmentVariables("%TMP%"));
             T1_lbl_Anzahl_Tmp_Dateien_Windows.Text = a.ToString();
-            L_Benutzer = bv.Hole_Alle_Benutzer(1);
-            if (L_Benutzer.Count > 0)
-            {
-                foreach (string s in L_Benutzer)
-                    AO_comboBox_Benutzer.Items.Add(s);
-                AO_comboBox_Benutzer.SelectedIndex = 0;
-            }
+            aktualisiere_Benutzer();
             T1_AO_dateTimePicker_Startzeit.Format = DateTimePickerFormat.Custom;
             T1_AO_dateTimePicker_Startzeit.CustomFormat = "HH:mm";
             T1_AO_dateTimePicker_Startzeit.ShowUpDown = true;
@@ -194,9 +188,18 @@ namespace Windows_SmartClean_Forms
             { T1_pic_AO_Status.Image = Windows_SmartClean_Forms.Properties.Resources.task_nv;
                 T1_lbl_AO_laeuft_O.Text = "Es läuft keine";
             }
-            
         }
 
+        void aktualisiere_Benutzer()
+        {
+            L_Benutzer = bv.Hole_Alle_Benutzer(1);
+            if (L_Benutzer.Count > 0)
+            {
+                AO_comboBox_Benutzer.Items.Clear(); T2_comboBox_Benutzer.Items.Clear();
+                foreach (string s in L_Benutzer) { AO_comboBox_Benutzer.Items.Add(s); T2_comboBox_Benutzer.Items.Add(s); }
+                AO_comboBox_Benutzer.SelectedIndex = 0; T2_comboBox_Benutzer.SelectedIndex = 0;
+            }
+        }
 
         void WSC_Minimiert()
         {
@@ -421,6 +424,7 @@ namespace Windows_SmartClean_Forms
                         MessageBox.Show("Der Benutzer: " + T1_txt_BH_Name.Text + " wurde erfolgreich hinzugefügt!", "Benutzer erfolgreich hinzuefügt!");
                     else
                         MessageBox.Show("Der Benutzer: " + T1_txt_BH_Name.Text + " konnte nicht hinzugefügt werden!", "Benutzer konnte nicht hinzuefügt werden!");
+                    aktualisiere_Benutzer();
                     aktualisiere_Benutzer_Und_Gruppen_in_Tree();
                 }
             }   //  Ende if, ob überhaupt etwas bei Name und Passwort eingegeben wurde
@@ -444,7 +448,10 @@ namespace Windows_SmartClean_Forms
 
         private void T2_btn_Alle_Windows10_Apps_Entfernen_Click(object sender, EventArgs e)
         {
-            //win10.Entferne_Win10_Sinnlos_apps();
+            if (T2_comboBox_Benutzer.SelectedIndex != -1)
+                win10.Entferne_Alle_Apps_Fuer_Benutzer(T2_comboBox_Benutzer.SelectedItem.ToString());
+            else
+                MessageBox.Show("Es muss ein Benutzer ausgewählt werden!");
         }
 
         public void Aktiviere_Button_Win10_Apps(int Wert)

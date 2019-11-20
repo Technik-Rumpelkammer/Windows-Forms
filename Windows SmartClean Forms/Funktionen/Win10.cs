@@ -76,7 +76,6 @@ namespace Windows_SmartClean_Forms.Funktionen
         }
         public string Entferne_Apps(List<string> Apps)
         {
-            //Get - AppxPackage - AllUsers | Remove - AppxPackage
             string Befehl = ""; string ergebnis = ""; int zaehler = Apps.Count;
             if (zaehler == 1)
                 Befehl = " Get-AppxPackage -AllUsers -name *" + Apps[0] + "* | Remove-AppxPackage";
@@ -98,20 +97,28 @@ namespace Windows_SmartClean_Forms.Funktionen
 
                 PowerShellInstance.AddScript(Befehl);
                 IAsyncResult result = PowerShellInstance.BeginInvoke<PSObject, PSObject>(null, outputCollection);
-                Console.WriteLine("Der Befehl: " + Befehl);
                 while (result.IsCompleted == false)
-                {
-                    //Console.WriteLine("Entferne StandardApps... Bitte warten");
-                }
-                //Console.WriteLine("Fertig mit entfernen...");
+                { }
                 foreach (PSObject outputItem in outputCollection)
                     ergebnis = outputItem.ToString();
             }   //  Ende using
 
-            Console.WriteLine("Das Ergebnis:\n\n" + ergebnis);
-
             return ergebnis;
         }   //  Ende Methode Entferne_Apps
+
+        public void Entferne_Alle_Apps_Fuer_Benutzer(string _Benutzer)
+        {
+            using (PowerShell PowerShellInstance = PowerShell.Create())
+            {
+
+                PSDataCollection<PSObject> outputCollection = new PSDataCollection<PSObject>();
+
+                PowerShellInstance.AddScript("Get-AppxPackage –User " + _Benutzer + " | Remove-AppxPackage");
+                IAsyncResult result = PowerShellInstance.BeginInvoke<PSObject, PSObject>(null, outputCollection);
+                while (result.IsCompleted == false)
+                { }
+            }   //  Ende using
+        }   //  Ende Methode Entferne_Alle_Apps_Fuer_Benutzer
 
         public bool Laden_Sicherheitsscript_herunter()
         {

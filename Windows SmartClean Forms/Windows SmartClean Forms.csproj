@@ -147,6 +147,8 @@
     <Content Include="Dokumente\ueberfluessige Ordner.txt" />
     <Content Include="Dokumente\Win10_Std_Apps.txt" />
     <Content Include="Dokumente\Win10_Std_Apps_Vergleich.txt" />
+    <None Include="Resources\win10.png" />
+    <None Include="Resources\39.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
