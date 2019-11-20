@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Itzikgur-My-Seven-Downloads-1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.8.17.0, Culture=neutral, PublicKeyToken=c416bc1b32d97233, processorArchitecture=MSIL">
       <HintPath>..\packages\TaskScheduler.2.8.17\lib\net452\Microsoft.Win32.TaskScheduler.dll</HintPath>
@@ -147,6 +150,7 @@
     <Content Include="Dokumente\ueberfluessige Ordner.txt" />
     <Content Include="Dokumente\Win10_Std_Apps.txt" />
     <Content Include="Dokumente\Win10_Std_Apps_Vergleich.txt" />
+    <Content Include="Itzikgur-My-Seven-Downloads-1.ico" />
     <None Include="Resources\win10.png" />
     <None Include="Resources\39.gif" />
   </ItemGroup>
