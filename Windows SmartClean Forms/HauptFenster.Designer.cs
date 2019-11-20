@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HauptFenster));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -84,16 +85,29 @@
             this.T1_lbl_ausfrd_Benutzer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.T2_pictureBox_Hilfe_Sicherheitsscript = new System.Windows.Forms.PictureBox();
+            this.T2_btn_Lade_Sicherheitsscript = new System.Windows.Forms.Button();
+            this.T2_pictureBox_Sicherheitsscript = new System.Windows.Forms.PictureBox();
+            this.T2_Win10_Privatsphaere = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.T2_comboBox_Schutzlevel_Privatsphaere = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.T2_checkBox_Globale_Sicherheitseinstellungen = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.T2_pictureBox_Win10_StdApss_Entf = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen = new System.Windows.Forms.CheckBox();
             this.T2_lbl_Windows_Std_Apps = new System.Windows.Forms.Label();
             this.T2_Win10_checkedListBox_StandardApps = new System.Windows.Forms.CheckedListBox();
             this.T2_btn_StandardApps_Wiederherstellen = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Win10_checkedListBox_StartmenueProgramme = new System.Windows.Forms.CheckedListBox();
             this.T2_btn_Alle_Windows10_Apps_Entfernen = new System.Windows.Forms.Button();
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.T2_btn_Privatspaehre_Schuetzen = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -104,6 +118,10 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Hilfe_Sicherheitsscript)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Sicherheitsscript)).BeginInit();
+            this.T2_Win10_Privatsphaere.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -320,6 +338,7 @@
             this.T1_pic_AO_Status.Size = new System.Drawing.Size(32, 32);
             this.T1_pic_AO_Status.TabIndex = 20;
             this.T1_pic_AO_Status.TabStop = false;
+            this.toolTip1.SetToolTip(this.T1_pic_AO_Status, "Hier sieht man, ob es bereits eine Aufgabe zur Systemoptimierung gibt.");
             // 
             // AO_textBox_Interval
             // 
@@ -522,6 +541,8 @@
             this.T1_tree_Benutzer.Name = "T1_tree_Benutzer";
             this.T1_tree_Benutzer.Size = new System.Drawing.Size(324, 124);
             this.T1_tree_Benutzer.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.T1_tree_Benutzer, "Eine Übersicht, über Benutzer und deren Gruppenzugehörigkeit. Die Gruppen sind au" +
+        "f: Administratoren, Benutzer und HomeUsers begrenzt");
             this.T1_tree_Benutzer.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.T1_tree_Benutzer_NodeMouseDoubleClick);
             // 
             // label9
@@ -562,6 +583,7 @@
             this.T1_btn_Benutzer_Hinzufuegen.Size = new System.Drawing.Size(169, 34);
             this.T1_btn_Benutzer_Hinzufuegen.TabIndex = 7;
             this.T1_btn_Benutzer_Hinzufuegen.Text = "Benutzer hinzufügen";
+            this.toolTip1.SetToolTip(this.T1_btn_Benutzer_Hinzufuegen, "Hier klicken, um einen neuen Benutzer anzulegen");
             this.T1_btn_Benutzer_Hinzufuegen.UseVisualStyleBackColor = true;
             this.T1_btn_Benutzer_Hinzufuegen.Click += new System.EventHandler(this.T1_btn_Benutzer_Hinzufuegen_Click);
             // 
@@ -659,6 +681,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.T2_pictureBox_Win10_StdApss_Entf);
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Controls.Add(this.groupBox5);
@@ -674,6 +697,117 @@
             this.tabPage2.Text = "Windows 10";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.T2_pictureBox_Hilfe_Sicherheitsscript);
+            this.groupBox6.Controls.Add(this.T2_btn_Lade_Sicherheitsscript);
+            this.groupBox6.Controls.Add(this.T2_pictureBox_Sicherheitsscript);
+            this.groupBox6.Controls.Add(this.T2_Win10_Privatsphaere);
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Location = new System.Drawing.Point(402, 15);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(390, 189);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            // 
+            // T2_pictureBox_Hilfe_Sicherheitsscript
+            // 
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.Image = global::Windows_SmartClean_Forms.Properties.Resources.hilfe_32;
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.Location = new System.Drawing.Point(13, 27);
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.Name = "T2_pictureBox_Hilfe_Sicherheitsscript";
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.Size = new System.Drawing.Size(32, 32);
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.TabIndex = 11;
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.TabStop = false;
+            this.T2_pictureBox_Hilfe_Sicherheitsscript.Click += new System.EventHandler(this.T2_pictureBox_Hilfe_Sicherheitsscript_Click);
+            // 
+            // T2_btn_Lade_Sicherheitsscript
+            // 
+            this.T2_btn_Lade_Sicherheitsscript.Location = new System.Drawing.Point(66, 19);
+            this.T2_btn_Lade_Sicherheitsscript.Name = "T2_btn_Lade_Sicherheitsscript";
+            this.T2_btn_Lade_Sicherheitsscript.Size = new System.Drawing.Size(254, 47);
+            this.T2_btn_Lade_Sicherheitsscript.TabIndex = 10;
+            this.T2_btn_Lade_Sicherheitsscript.Text = "Sicherheitsscript herunterladen";
+            this.T2_btn_Lade_Sicherheitsscript.UseVisualStyleBackColor = true;
+            this.T2_btn_Lade_Sicherheitsscript.Click += new System.EventHandler(this.T2_btn_Lade_Sicherheitsscript_Click);
+            // 
+            // T2_pictureBox_Sicherheitsscript
+            // 
+            this.T2_pictureBox_Sicherheitsscript.Image = global::Windows_SmartClean_Forms.Properties.Resources.task_nv;
+            this.T2_pictureBox_Sicherheitsscript.Location = new System.Drawing.Point(343, 27);
+            this.T2_pictureBox_Sicherheitsscript.Name = "T2_pictureBox_Sicherheitsscript";
+            this.T2_pictureBox_Sicherheitsscript.Size = new System.Drawing.Size(32, 32);
+            this.T2_pictureBox_Sicherheitsscript.TabIndex = 9;
+            this.T2_pictureBox_Sicherheitsscript.TabStop = false;
+            // 
+            // T2_Win10_Privatsphaere
+            // 
+            this.T2_Win10_Privatsphaere.Controls.Add(this.T2_btn_Privatspaehre_Schuetzen);
+            this.T2_Win10_Privatsphaere.Controls.Add(this.label24);
+            this.T2_Win10_Privatsphaere.Controls.Add(this.T2_comboBox_Schutzlevel_Privatsphaere);
+            this.T2_Win10_Privatsphaere.Controls.Add(this.label23);
+            this.T2_Win10_Privatsphaere.Controls.Add(this.T2_checkBox_Globale_Sicherheitseinstellungen);
+            this.T2_Win10_Privatsphaere.Enabled = false;
+            this.T2_Win10_Privatsphaere.Location = new System.Drawing.Point(6, 65);
+            this.T2_Win10_Privatsphaere.Name = "T2_Win10_Privatsphaere";
+            this.T2_Win10_Privatsphaere.Size = new System.Drawing.Size(378, 118);
+            this.T2_Win10_Privatsphaere.TabIndex = 8;
+            this.T2_Win10_Privatsphaere.TabStop = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 55);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(211, 16);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "Globale Einstellungen verwenden:";
+            // 
+            // T2_comboBox_Schutzlevel_Privatsphaere
+            // 
+            this.T2_comboBox_Schutzlevel_Privatsphaere.FormattingEnabled = true;
+            this.T2_comboBox_Schutzlevel_Privatsphaere.Items.AddRange(new object[] {
+            "Standard",
+            "Ausbalanciert",
+            "Stark"});
+            this.T2_comboBox_Schutzlevel_Privatsphaere.Location = new System.Drawing.Point(229, 21);
+            this.T2_comboBox_Schutzlevel_Privatsphaere.Name = "T2_comboBox_Schutzlevel_Privatsphaere";
+            this.T2_comboBox_Schutzlevel_Privatsphaere.Size = new System.Drawing.Size(140, 24);
+            this.T2_comboBox_Schutzlevel_Privatsphaere.TabIndex = 6;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 24);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(181, 16);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Schutzlevel der Privatsphäre:";
+            // 
+            // T2_checkBox_Globale_Sicherheitseinstellungen
+            // 
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.AutoSize = true;
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.Checked = true;
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.Location = new System.Drawing.Point(229, 57);
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.Name = "T2_checkBox_Globale_Sicherheitseinstellungen";
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.Size = new System.Drawing.Size(15, 14);
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.T2_checkBox_Globale_Sicherheitseinstellungen, "Damit werden Sicherheitseinstellungen gesetzt, welche über den Benutzer hinausgeh" +
+        "en");
+            this.T2_checkBox_Globale_Sicherheitseinstellungen.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.White;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(6, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(270, 16);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "Windows 10 Privatsphären Einstellung";
+            // 
             // T2_pictureBox_Win10_StdApss_Entf
             // 
             this.T2_pictureBox_Win10_StdApss_Entf.BackgroundImage = global::Windows_SmartClean_Forms.Properties.Resources.entfernen;
@@ -682,6 +816,7 @@
             this.T2_pictureBox_Win10_StdApss_Entf.Size = new System.Drawing.Size(64, 64);
             this.T2_pictureBox_Win10_StdApss_Entf.TabIndex = 5;
             this.T2_pictureBox_Win10_StdApss_Entf.TabStop = false;
+            this.toolTip1.SetToolTip(this.T2_pictureBox_Win10_StdApss_Entf, "Klicken, um ausgewählte Apps zu entfernen");
             this.T2_pictureBox_Win10_StdApss_Entf.Click += new System.EventHandler(this.T2_pictureBox_Win10_StdApss_Entf_Click);
             // 
             // label20
@@ -705,6 +840,17 @@
             this.groupBox5.Size = new System.Drawing.Size(320, 243);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
+            // 
+            // T2_AO_checkBox_Alle_Std_Apps_Auswaehlen
+            // 
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.AutoSize = true;
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Location = new System.Drawing.Point(8, 21);
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Name = "T2_AO_checkBox_Alle_Std_Apps_Auswaehlen";
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Size = new System.Drawing.Size(117, 20);
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.TabIndex = 6;
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Text = "Alle auswählen";
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.UseVisualStyleBackColor = true;
+            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.CheckedChanged += new System.EventHandler(this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen_CheckedChanged);
             // 
             // T2_lbl_Windows_Std_Apps
             // 
@@ -764,16 +910,15 @@
             this.T2_btn_Alle_Windows10_Apps_Entfernen.UseVisualStyleBackColor = true;
             this.T2_btn_Alle_Windows10_Apps_Entfernen.Click += new System.EventHandler(this.T2_btn_Alle_Windows10_Apps_Entfernen_Click);
             // 
-            // T2_AO_checkBox_Alle_Std_Apps_Auswaehlen
+            // T2_btn_Privatspaehre_Schuetzen
             // 
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.AutoSize = true;
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Location = new System.Drawing.Point(8, 21);
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Name = "T2_AO_checkBox_Alle_Std_Apps_Auswaehlen";
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Size = new System.Drawing.Size(117, 20);
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.TabIndex = 6;
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.Text = "Alle auswählen";
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.UseVisualStyleBackColor = true;
-            this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen.CheckedChanged += new System.EventHandler(this.T2_AO_checkBox_Alle_Std_Apps_Auswaehlen_CheckedChanged);
+            this.T2_btn_Privatspaehre_Schuetzen.Location = new System.Drawing.Point(106, 74);
+            this.T2_btn_Privatspaehre_Schuetzen.Name = "T2_btn_Privatspaehre_Schuetzen";
+            this.T2_btn_Privatspaehre_Schuetzen.Size = new System.Drawing.Size(173, 35);
+            this.T2_btn_Privatspaehre_Schuetzen.TabIndex = 11;
+            this.T2_btn_Privatspaehre_Schuetzen.Text = "Privatsphäe schützen";
+            this.T2_btn_Privatspaehre_Schuetzen.UseVisualStyleBackColor = true;
+            this.T2_btn_Privatspaehre_Schuetzen.Click += new System.EventHandler(this.T2_btn_Privatspaehre_Schuetzen_Click);
             // 
             // HauptFenster
             // 
@@ -803,6 +948,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.T1_pic_Benutzer_Hinzufuegen)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Hilfe_Sicherheitsscript)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Sicherheitsscript)).EndInit();
+            this.T2_Win10_Privatsphaere.ResumeLayout(false);
+            this.T2_Win10_Privatsphaere.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.T2_pictureBox_Win10_StdApss_Entf)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -878,6 +1029,19 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox T2_pictureBox_Win10_StdApss_Entf;
         private System.Windows.Forms.CheckBox T2_AO_checkBox_Alle_Std_Apps_Auswaehlen;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.PictureBox T2_pictureBox_Hilfe_Sicherheitsscript;
+        private System.Windows.Forms.Button T2_btn_Lade_Sicherheitsscript;
+        private System.Windows.Forms.PictureBox T2_pictureBox_Sicherheitsscript;
+        private System.Windows.Forms.GroupBox T2_Win10_Privatsphaere;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox T2_comboBox_Schutzlevel_Privatsphaere;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.CheckBox T2_checkBox_Globale_Sicherheitseinstellungen;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button T2_btn_Privatspaehre_Schuetzen;
     }
 }
 

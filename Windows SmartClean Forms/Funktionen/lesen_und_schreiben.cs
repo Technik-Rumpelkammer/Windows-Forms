@@ -13,10 +13,10 @@ namespace Windows_SmartClean.Funktionen
     class lesen_und_schreiben
     {
         string Benutzer = "";
-        string V_Wurzel = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Windows SmartClean";
-        string V_Fehler_Log = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Windows SmartClean\\FehlerLog";
-        string V_Config = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Windows SmartClean\\Konfigurationen";
-        string V_Ergebnisse = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Windows SmartClean\\Ergebnisse";
+        string V_Wurzel = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean";
+        string V_Fehler_Log = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\FehlerLog";
+        string V_Config = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\Konfigurationen";
+        string V_Ergebnisse = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\Ergebnisse";
 
         public string Setze_Benutzer
         {
@@ -143,6 +143,15 @@ namespace Windows_SmartClean.Funktionen
                 Erstelle_Fehlerbericht(Benutzer, "lesen_und_schreiben.cs", "Schreibe_Konfigdatei", e_Schreibe_Konfigdatei.ToString(), DateTime.Now.ToString());
             }
         }
+
+        public bool Pruefe_Ob_Konfig_Vorhanden(string _Datei)
+        {
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\Konfigurationen\\" + _Datei))
+                return true;
+            else
+                return false;
+        }
+
         public void Erstelle_ErgebnisBericht(string _Benutzer, string _Funktion, string _Datum, string _Groesse, string _Anzahl_Dateien)
         {
             using (StreamWriter outputFile = new StreamWriter(V_Ergebnisse + "\\Datenzaehler.txt", true))

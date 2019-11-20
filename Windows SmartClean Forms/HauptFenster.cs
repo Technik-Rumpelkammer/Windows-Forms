@@ -26,6 +26,7 @@ namespace Windows_SmartClean_Forms
 
         Thread T_Prozesse;
         Thread T_Hole_Win10_Stnd_Apps;
+        Thread T_Hole_Benutzer;
 
         Windows_SmartClean.Funktionen.Benutzerverwaltung bv = new Windows_SmartClean.Funktionen.Benutzerverwaltung();
         Windows_SmartClean.Funktionen.lesen_und_schreiben ls = new Windows_SmartClean.Funktionen.lesen_und_schreiben();
@@ -62,7 +63,6 @@ namespace Windows_SmartClean_Forms
 
         void StartFunktionen()
         {
-            aktualisiere_Benutzer_Und_Gruppen_in_Tree();
             T1_Suche_Nach_Ordnern_Auf_C();
             T1_Pruefe_Papierkorb();
             if (Minimiert)
@@ -70,14 +70,18 @@ namespace Windows_SmartClean_Forms
             else
             {
                 Einzelne_Startaufgaben();
+                Pruefe_Das_Sicherheitsscript();
                 T_Prozesse = new Thread(aktualisiere_Prozesse);
                 T_Prozesse.IsBackground = true;
                 T_Prozesse.Start();
-                T2_Hole_Startmenu_Apps();
                 T_Hole_Win10_Stnd_Apps = new Thread(Hole_Win10_Stand_Apps);
                 T_Hole_Win10_Stnd_Apps.IsBackground = true;
                 T_Hole_Win10_Stnd_Apps.Start();
+                T2_Hole_Startmenu_Apps();
                 T1_lbl_Gew_Speicherplatz.Text = ls.Lese_Datenzaehler().ToString("0.00") + " GB";
+                T_Hole_Benutzer = new Thread(aktualisiere_Benutzer_Und_Gruppen_in_Tree);
+                T_Hole_Benutzer.IsBackground = true;
+                T_Hole_Benutzer.Start();
             }
         }
 
@@ -97,16 +101,17 @@ namespace Windows_SmartClean_Forms
                             string ss = s.ToUpper(); string sss = s;
                             if (ss.Contains("MICROSOFT.WINDOWS.") || ss.Contains("WINDOWS.") || ss.Contains("MICROSOFT."))
                                 ss = ss.Substring(ss.LastIndexOf('.') + 1);
-                           // Console.WriteLine("SS wird ausgegeben: " + ss + "\ns wird ausgegeben: " + s);
+
                             if (ss.Length > 2)
                                 foreach (string g in Config_Apps)
+                                {
                                     if (g.ToUpper() == ss && !g.ToUpper().Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
                                     {
                                         if (sss.Contains("Microsoft."))
                                             sss = sss.Substring(sss.LastIndexOf('.') + 1);
                                         T2_Win10_checkedListBox_StandardApps.Items.Add(sss); i++;
-                                        //Console.WriteLine("ss: " + ss + "\ng: " + g);
                                     }
+                                }
                         }
                         T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps: " + i;
                     });
@@ -123,11 +128,14 @@ namespace Windows_SmartClean_Forms
                         //Console.WriteLine("SS wird ausgegeben: " + ss + "\ns wird ausgegeben: " + s);
                         if (ss.Length > 2)
                             foreach (string g in Config_Apps)
+                            {
                                 if (g.ToUpper() == ss && !g.ToUpper().Contains("#") && !T2_Win10_checkedListBox_StandardApps.Items.Contains(ss))
                                 {
+                                    if (sss.Contains("Microsoft."))
+                                        sss = sss.Substring(sss.LastIndexOf('.') + 1);
                                     T2_Win10_checkedListBox_StandardApps.Items.Add(sss); i++;
-                                    //Console.WriteLine("ss: " + ss + "\ng: " + g);
                                 }
+                            }
                     }
                     T2_lbl_Windows_Std_Apps.Text = "Windows 10 Standard-Apps: " + i;
                 }
@@ -156,7 +164,6 @@ namespace Windows_SmartClean_Forms
         void Einzelne_Startaufgaben()
         {
             ls.Richte_Verzeichnise_Ein();
-            Gew_Gruppen.Add("Administratoren"); Gew_Gruppen.Add("Benutzer"); Gew_Gruppen.Add("HomeUsers"); Gew_Gruppen.Add("");
             T1_lbl_ausfrd_Benutzer.Text = bv.Hole_Ausfuehrenden_Benutzer();
             T1_lbl_Angem_Benutzer.Text = bv.Hole_Angemeldeten_Benutzer(); Benutzer = T1_lbl_Angem_Benutzer.Text;
             sauber.Setze_Benutzer = Benutzer;
@@ -373,28 +380,33 @@ namespace Windows_SmartClean_Forms
 
         void aktualisiere_Benutzer_Und_Gruppen_in_Tree()
         {
-            T1_tree_Benutzer.Nodes.Clear(); T1_comboBox_Gruppenauswahl.Items.Clear(); int i = 0;
-            List<string> Gruppen = bv.Hole_Alle_Gruppen(); List<string> Gruppen_Mit = new List<string>();
-            foreach (String s in Gruppen)
+            Thread.Sleep(100);
+            Gew_Gruppen.Add("Administratoren"); Gew_Gruppen.Add("Benutzer"); Gew_Gruppen.Add("HomeUsers"); Gew_Gruppen.Add("");
+            this.Invoke((MethodInvoker)delegate
             {
-                if (Gew_Gruppen.Contains(s))
+                T1_tree_Benutzer.Nodes.Clear(); T1_comboBox_Gruppenauswahl.Items.Clear(); int i = 0;
+                List<string> Gruppen = bv.Hole_Alle_Gruppen(); List<string> Gruppen_Mit = new List<string>();
+                foreach (String s in Gruppen)
                 {
-                    T1_tree_Benutzer.Nodes.Add(s);
-                    T1_comboBox_Gruppenauswahl.Items.Add(s);
-                    Gruppen_Mit = bv.Hole_Gruppen_Mitglieder(s);
-                    foreach (string ss in Gruppen_Mit)
+                    if (Gew_Gruppen.Contains(s))
                     {
-                        if (ss == "INTERAKTIV" || ss == "Authentifizierte Benutzer")
-                            continue;
-                        else
-                        T1_tree_Benutzer.Nodes[i].Nodes.Add(ss);
+                        T1_tree_Benutzer.Nodes.Add(s);
+                        T1_comboBox_Gruppenauswahl.Items.Add(s);
+                        Gruppen_Mit = bv.Hole_Gruppen_Mitglieder(s);
+                        foreach (string ss in Gruppen_Mit)
+                        {
+                            if (ss == "INTERAKTIV" || ss == "Authentifizierte Benutzer")
+                                continue;
+                            else
+                                T1_tree_Benutzer.Nodes[i].Nodes.Add(ss);
+                        }
+                        i++;
                     }
-                    i++;
-                }
-            }   //  Ende foreach
-            T1_tree_Benutzer.ExpandAll();
-            if (T1_comboBox_Gruppenauswahl.Items.Count > 0)
-                T1_comboBox_Gruppenauswahl.SelectedIndex = 0;
+                }   //  Ende foreach
+                T1_tree_Benutzer.ExpandAll();
+                if (T1_comboBox_Gruppenauswahl.Items.Count > 0)
+                    T1_comboBox_Gruppenauswahl.SelectedIndex = 0;
+            });          
         }   //  Ende Methode aktualisiere_Benutzer_Und_Gruppen_in_Tree
 
         private void T1_btn_Benutzer_Hinzufuegen_Click(object sender, EventArgs e)
@@ -432,7 +444,7 @@ namespace Windows_SmartClean_Forms
 
         private void T2_btn_Alle_Windows10_Apps_Entfernen_Click(object sender, EventArgs e)
         {
-            win10.Entferne_Win10_Sinnlos_apps();
+            //win10.Entferne_Win10_Sinnlos_apps();
         }
 
         public void Aktiviere_Button_Win10_Apps(int Wert)
@@ -538,13 +550,67 @@ namespace Windows_SmartClean_Forms
 
         private void T2_btn_StandardApps_Wiederherstellen_Click(object sender, EventArgs e)
         {
-            win10.Win10_StandardApps_WiederHerstellen();
-        }
+            try
+            {
+                DialogResult Abfrage = MessageBox.Show("Sicher, dass alle Standard-Apps wiederhergestellt werden sollen?", "Sicher?", MessageBoxButtons.YesNo);
+                if (Abfrage == DialogResult.Yes)
+                {
+                    T2_btn_StandardApps_Wiederherstellen.Enabled = false;/*
+                    Thread T_Hole_Std_Apps = new Thread(Hole_Standard_Apps_Zurueck);
+                    T_Hole_Std_Apps.IsBackground = true;
+                    T_Hole_Std_Apps.Start();
+
+                    while (T_Hole_Std_Apps.IsAlive)
+                    {
+                        if (this.InvokeRequired)
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                T2_btn_StandardApps_Wiederherstellen.Enabled = false;
+                            });
+                        else
+                            T2_btn_StandardApps_Wiederherstellen.Enabled = false;
+                    }   //  Ende while
+                    if (this.InvokeRequired)
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            T2_btn_StandardApps_Wiederherstellen.Enabled = true;
+                        });
+                    else
+                        T2_btn_StandardApps_Wiederherstellen.Enabled = true;*/
+                    win10.Win10_StandardApps_WiederHerstellen();
+                    Hole_Win10_Stand_Apps();
+                    T2_btn_StandardApps_Wiederherstellen.Enabled = true;
+                    DialogResult Abfrage2 = MessageBox.Show("Damit die Änderungen wirksam werden, muss Windows neugestartet werden.\n\nSoll Windows jetzt neugestartet werden?","Windows Neustarten?", MessageBoxButtons.YesNo);
+                    if(Abfrage2 == DialogResult.Yes)
+                        System.Diagnostics.Process.Start("shutdown.exe", "-r -t 0");
+                }   //  Ende if, ob Ja gedrückt wurde
+            }
+            catch(Exception e_T2_btn_StandardApps_Wiederherstellen_Click)
+            {
+                ls.Erstelle_Fehlerbericht(Benutzer, "MainWindow.cs", "T2_btn_StandardApps_Wiederherstellen_Click", e_T2_btn_StandardApps_Wiederherstellen_Click.ToString(), DateTime.Now.ToString());
+            }   //  Ende catch
+        }   //  Ende Methode T2_btn_StandardApps_Wiederherstellen_Click
+
+        void Hole_Standard_Apps_Zurueck()
+        {
+            try
+            {
+                win10.Win10_StandardApps_WiederHerstellen();
+            }
+            catch (Exception e_Hole_Standard_Apps_Zurueck)
+            {
+                ls.Erstelle_Fehlerbericht(Benutzer, "MainWindow.cs", "T2_Hole_Standard_Apps_Zurueck", e_Hole_Standard_Apps_Zurueck.ToString(), DateTime.Now.ToString());
+            }   //  Ende catch
+        }   //  Ende Methode Hole_Standard_Apps_Zurueck
 
         void Beende_Threads()
         {
             if (T_Prozesse.IsAlive)
                 T_Prozesse.Abort();
+            if (T_Hole_Benutzer.IsAlive)
+                T_Hole_Benutzer.Abort();
+            if (T_Hole_Win10_Stnd_Apps.IsAlive)
+                T_Hole_Win10_Stnd_Apps.Abort();
         }
 
         private void HauptFenster_FormClosing(object sender, FormClosingEventArgs e)
@@ -577,6 +643,48 @@ namespace Windows_SmartClean_Forms
             else
                 for (int i = 0; i < T2_Win10_checkedListBox_StandardApps.Items.Count; i++)
                     T2_Win10_checkedListBox_StandardApps.SetItemChecked(i, false);
+        }
+
+        private void T2_pictureBox_Hilfe_Sicherheitsscript_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Zur Einstellung der Privatsphäre wird ein Powershell-Script von Peter Hahndorf genommen. Der Quellcode ist auf GitHub einsehbar:\n\n"
+                + @"https://github.com/hahndorf/Set-Privacy" +
+                "\n\nDa findet man auch alle Einstellungen, welche das Script vornimmt. Ich verwende diese Vorlage, da Peter einige Zeit und Arbeit investiert hat, um " 
+                + "hier eine tolle und einfach Möglichkeit zu schaffen, um Windows 10 ein wenig zu bremsen, was die \"Spionage\" angeht.\n\n"
+                + "Wenn der Download-Button geklickt wird, lädt Windows SmartClean das Script hier her herunter:\n\n" 
+                + Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Windows SmartClean\\Konfigurationen\n\n"
+                + "Im Anschluss wird es mit den Parameter \"-Default, -Balanced oder -Strong\" gestartet. Systemweite Einstellungen werden mit dem Parameter: \"-admin durchgeführt.\"");
+        }
+
+        void Pruefe_Das_Sicherheitsscript()
+        {
+            if (ls.Pruefe_Ob_Konfig_Vorhanden("Set-Privacy.ps1"))
+            { 
+                T2_btn_Lade_Sicherheitsscript.Enabled = false;
+                T2_pictureBox_Sicherheitsscript.Image = Windows_SmartClean_Forms.Properties.Resources.task_v;
+                T2_Win10_Privatsphaere.Enabled = true;
+            }
+            else
+            {
+                T2_btn_Lade_Sicherheitsscript.Enabled = true;
+                T2_pictureBox_Sicherheitsscript.Image = Windows_SmartClean_Forms.Properties.Resources.task_nv;
+                T2_Win10_Privatsphaere.Enabled = false;
+            }
+        }
+
+        private void T2_btn_Lade_Sicherheitsscript_Click(object sender, EventArgs e)
+        {
+            if (win10.Laden_Sicherheitsscript_herunter())
+                Pruefe_Das_Sicherheitsscript();
+        }
+
+        private void T2_btn_Privatspaehre_Schuetzen_Click(object sender, EventArgs e)
+        {
+            if(T2_comboBox_Schutzlevel_Privatsphaere.SelectedIndex != -1)
+            {
+                win10.Setze_Privatsphaere(T2_comboBox_Schutzlevel_Privatsphaere.SelectedItem.ToString(), T2_checkBox_Globale_Sicherheitseinstellungen.Checked);
+            }else
+                MessageBox.Show("Es muss ein Schutzlevel für die Privatsphäre gewählt werden!");
         }
     }
 }

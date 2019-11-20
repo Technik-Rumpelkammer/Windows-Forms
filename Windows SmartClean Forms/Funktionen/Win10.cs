@@ -12,13 +12,6 @@ namespace Windows_SmartClean_Forms.Funktionen
 {
     class Win10
     {
-        public void Entferne_Win10_Sinnlos_apps()
-        {
-            Thread T_Win10Apps = new Thread(Entferne_Apps);
-            T_Win10Apps.IsBackground = true;
-            T_Win10Apps.Start();
-        }
-
         public List<string> Hole_Startmenue_Apps()
         {
             List<string> Apps = new List<string>();
@@ -47,18 +40,13 @@ namespace Windows_SmartClean_Forms.Funktionen
         {
             using (PowerShell PowerShellInstance = PowerShell.Create())
             {
-
-                PowerShellInstance.AddScript(@"Get-AppxPackage | foreach {Add-AppxPackage -register „$($_.InstallLocation)\appxmanifest.xml“ -DisableDevelopmentMod}");
+                PowerShellInstance.AddScript("Get-AppxPackage -allusers | foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}");
                 IAsyncResult result = PowerShellInstance.BeginInvoke();
 
                 while (result.IsCompleted == false)
-                {
-                    Console.WriteLine("Stelle Standard her... Bitte warten");
-                }
-
-                Console.WriteLine("Standard wieder hergestellt!");
+                    Thread.Sleep(10);
             }
-        }
+        }   //  Ende Methode Win10_StandardApps_WiederHerstellen
 
         public List<string> Hole_Win10_StandardApps()
         {
@@ -86,38 +74,22 @@ namespace Windows_SmartClean_Forms.Funktionen
             }
             return Apps;
         }
-
-        void Entferne_Apps()
-        {
-            // Get-AppxPackage -AllUsers | where-object {$_.name –notlike "*store*"} | Remove-AppxPackage
-            using (PowerShell PowerShellInstance = PowerShell.Create())
-            {
-                // this script has a sleep in it to simulate a long running script
-                PowerShellInstance.AddScript("Get-AppxPackage -AllUsers | where-object {$_.name –notlike \"* store*\"} | Remove-AppxPackage");
-
-                // begin invoke execution on the pipeline
-                IAsyncResult result = PowerShellInstance.BeginInvoke();
-
-                // do something else until execution has completed.
-                // this could be sleep/wait, or perhaps some other work
-                
-                while (result.IsCompleted == false)
-                {
-                    
-                    Console.WriteLine("Waiting for pipeline to finish...");
-                    Thread.Sleep(1000);
-
-                    // might want to place a timeout here...
-                }
-                Console.WriteLine("Finished!");
-            }
-        }
         public string Entferne_Apps(List<string> Apps)
         {
-            string Befehl = "Get-AppxPackage"; string ergebnis = "";
-            foreach(string s in Apps)
-                Befehl += " | where-object {$_.name -like \"*" + s + "*\"}";
-            Befehl += " | Remove-AppxPackage";
+            //Get - AppxPackage - AllUsers | Remove - AppxPackage
+            string Befehl = ""; string ergebnis = ""; int zaehler = Apps.Count;
+            if (zaehler == 1)
+                Befehl = " Get-AppxPackage -AllUsers -name *" + Apps[0] + "* | Remove-AppxPackage";
+            else if(zaehler > 1)
+            {
+                for (int i = 0; i < Apps.Count; i++)
+                {
+                    if (i < Apps.Count - 1)
+                        Befehl += " Get-AppxPackage -AllUsers -name *" + Apps[i] + "* | Remove-AppxPackage ;";
+                    else
+                        Befehl += " Get-AppxPackage -AllUsers -name *" + Apps[i] + "* | Remove-AppxPackage";
+                }
+            }
 
             using (PowerShell PowerShellInstance = PowerShell.Create())
             {
@@ -140,5 +112,42 @@ namespace Windows_SmartClean_Forms.Funktionen
 
             return ergebnis;
         }   //  Ende Methode Entferne_Apps
+
+        public bool Laden_Sicherheitsscript_herunter()
+        {
+            bool Ergebnis = false;
+
+            using (PowerShell PowerShellInstance = PowerShell.Create())
+            {
+                PSDataCollection<PSObject> outputCollection = new PSDataCollection<PSObject>();
+                PowerShellInstance.AddScript(@"(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/hahndorf/Set-Privacy/master/Set-Privacy.ps1') | out-file -filepath " + Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\Konfigurationen\\Set-Privacy.ps1 -force ");
+                IAsyncResult result = PowerShellInstance.BeginInvoke<PSObject, PSObject>(null, outputCollection);
+                while (result.IsCompleted == false)
+                {
+                    //Console.WriteLine("Entferne StandardApps... Bitte warten");
+                }
+                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\Konfigurationen\\Set - Privacy.ps1"))
+                    Ergebnis = true;
+            }   //  Ende using
+
+            return Ergebnis;
+        }   //  Ende Methode Laden_Sicherheitsscript_herunter
+
+        public void Setze_Privatsphaere(string _Modi, bool _Admin)
+        {
+            string admin = "";
+            if (_Admin)
+                admin = " -admin";
+            using (PowerShell PowerShellInstance = PowerShell.Create())
+            {
+                PSDataCollection<PSObject> outputCollection = new PSDataCollection<PSObject>();
+                PowerShellInstance.AddScript("Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force; " + Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\WindowsSmartClean\\Konfigurationen\\Set-Privacy.ps1 -" + _Modi + admin);
+                IAsyncResult result = PowerShellInstance.BeginInvoke<PSObject, PSObject>(null, outputCollection);
+                while (result.IsCompleted == false)
+                {
+                    //Console.WriteLine("Entferne StandardApps... Bitte warten");
+                }
+            }
+        }   //  Ende Methode Setze_Privatsphaere
     }
 }
