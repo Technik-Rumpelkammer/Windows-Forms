@@ -57,8 +57,15 @@ namespace Windows_SmartClean.Funktionen
 
         public void Pruefe_Ob_Task_Vorhanden_Ist ()
         {
-            using (TaskService ts = new TaskService())
-                Kontrolliere_Jeden_AufgabenOrdner(ts.RootFolder);
+            try
+            {
+                using (TaskService ts = new TaskService())
+                    Kontrolliere_Jeden_AufgabenOrdner(ts.RootFolder);
+            }
+            catch(Exception e_Pruefe_Ob_Task_Vorhanden_Ist)
+            {
+                ls.Erstelle_Fehlerbericht(Benutzer, "Automatisches_Optimieren.cs", "Pruefe_Ob_Task_Vorhanden_Ist", e_Pruefe_Ob_Task_Vorhanden_Ist.ToString(), DateTime.Now.ToString());
+            }
         }
 
         void Kontrolliere_Jeden_AufgabenOrdner(TaskFolder fld)

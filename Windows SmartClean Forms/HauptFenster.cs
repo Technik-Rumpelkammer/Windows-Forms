@@ -681,8 +681,10 @@ namespace Windows_SmartClean_Forms
 
         private void T2_btn_Lade_Sicherheitsscript_Click(object sender, EventArgs e)
         {
-            if (win10.Laden_Sicherheitsscript_herunter())
-                Pruefe_Das_Sicherheitsscript();
+            DialogResult Abfrage = MessageBox.Show("Sicher, dass jetzt das Sicherheitsscript heruntergeladen werden soll?","Sicherheitsscript herunterladen?",MessageBoxButtons.YesNo);
+            if(Abfrage == DialogResult.Yes)
+                if (win10.Laden_Sicherheitsscript_herunter())
+                    Pruefe_Das_Sicherheitsscript();
         }
 
         private void T2_btn_Privatspaehre_Schuetzen_Click(object sender, EventArgs e)
