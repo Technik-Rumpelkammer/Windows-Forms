@@ -685,6 +685,8 @@ namespace Windows_SmartClean_Forms
             if(Abfrage == DialogResult.Yes)
                 if (win10.Laden_Sicherheitsscript_herunter())
                     Pruefe_Das_Sicherheitsscript();
+            Thread.Sleep(100);
+            Pruefe_Das_Sicherheitsscript();
         }
 
         private void T2_btn_Privatspaehre_Schuetzen_Click(object sender, EventArgs e)
@@ -692,6 +694,7 @@ namespace Windows_SmartClean_Forms
             if(T2_comboBox_Schutzlevel_Privatsphaere.SelectedIndex != -1)
             {
                 win10.Setze_Privatsphaere(T2_comboBox_Schutzlevel_Privatsphaere.SelectedItem.ToString(), T2_checkBox_Globale_Sicherheitseinstellungen.Checked);
+                MessageBox.Show("Sicherheitslevel wurde gesetzt.");
             }else
                 MessageBox.Show("Es muss ein Schutzlevel für die Privatsphäre gewählt werden!");
         }

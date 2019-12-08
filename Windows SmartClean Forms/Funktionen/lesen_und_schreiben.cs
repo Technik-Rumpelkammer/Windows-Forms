@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
@@ -26,7 +27,7 @@ namespace Windows_SmartClean.Funktionen
 
         public string Hole_SID(string _Benutzer)
         {
-            NTAccount f = new NTAccount(_Benutzer);
+            NTAccount f = new NTAccount(Environment.UserDomainName + "\\" + _Benutzer);
             SecurityIdentifier s = (SecurityIdentifier)f.Translate(typeof(SecurityIdentifier));
             return s.ToString();
         }
@@ -44,14 +45,14 @@ namespace Windows_SmartClean.Funktionen
             if (!File.Exists(V_Config + "\\ueberfluessige Ordner.txt"))
                 using(StreamWriter schreiber = new StreamWriter(V_Config + "\\ueberfluessige Ordner.txt"))
                 {
-                    schreiber.Write("Intel\nAMD\nNvidia\nPerfLog\nEpOutput");
+                    schreiber.Write("Intel\nAMD\nNvidia\nPerfLog\nEpOutput\nMININT");
                 }
             if (!File.Exists(V_Config + "\\Minimiert.txt"))
                 File.Create(V_Config + "\\Minimiert.txt");
             if (!File.Exists(V_Config + "\\Win10_Std_Apps_Vergleich.txt"))
                 using (StreamWriter schreiber = new StreamWriter(V_Config + "\\Win10_Std_Apps_Vergleich.txt"))
                 {
-                    schreiber.Write("3dbuilder\n3d\n\nappconnector\nappinstaller\nbing\nbingnews\nbingsports\nBingWeather\nBrokerPlugin\nbingfinance\nconnectivitystore\ncommunicationsapps\nCortana\ncamera\nfeedback\nGetHelp\ngetstarted\nmessaging\nMicrosoftOfficeHub\nMicrosoftStickyNotes\nMSPaint\nMicrosoft3DViewer\nMicrosoftSolitaireCollection\nOneConnect\nPhotos\nPrint3D\nPeople\nskypeapp\nsway\nsoundrecorder\nwallet\nWindowsFeedbackHub\nwindowsalarms\nWindowsCamera\nwindowsmaps\nwindowscalculator\nXboxApp\nXboxGamingOverlay\nYourPhone\nzunevideo\nzunemusic\nzune");
+                    schreiber.Write("3dbuilder\n3d\n\nappconnector\nappinstaller\nbing\nbingnews\nbingsports\nBingWeather\nBrokerPlugin\nbingfinance\nconnectivitystore\ncommunicationsapps\nCortana\ncamera\nfeedback\nGetHelp\ngetstarted\nmessaging\nMicrosoftOfficeHub\nMicrosoftStickyNotes\nMSPaint\nMicrosoft3DViewer\nMicrosoftSolitaireCollection\nOneConnect\nPhotos\nPrint3D\nPeople\nskypeapp\nsway\nsoundrecorder\nwallet\nWindowsFeedbackHub\nwindowsalarms\nWindowsCamera\nwindowsmaps\nwindowscalculator\nXboxApp\nXboxGamingOverlay\nking.com.FarmHeroesSaga\nking.com.CandyCrushFriends\nYourPhone\nXINGAG.XING\nzunevideo\nzunemusic\nzune");
                 }
             if (!File.Exists(V_Ergebnisse + "\\Datenzaehler.txt"))
                 File.Create(V_Ergebnisse + "\\Datenzaehler.txt");

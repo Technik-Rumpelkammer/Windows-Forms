@@ -15,6 +15,8 @@ camera
 feedback
 GetHelp
 getstarted
+king.com.FarmHeroesSaga
+king.com.CandyCrushFriends
 messaging
 MicrosoftOfficeHub
 MicrosoftStickyNotes
@@ -36,6 +38,7 @@ windowsmaps
 windowscalculator
 XboxApp
 XboxGamingOverlay
+XINGAG.XING
 YourPhone
 zunevideo
 zunemusic

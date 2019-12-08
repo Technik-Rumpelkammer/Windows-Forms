@@ -1,5 +1,6 @@
-Intel
 AMD
+EpOutput
+Intel
+MININT
 Nvidia
 PerfLog
-EpOutput
