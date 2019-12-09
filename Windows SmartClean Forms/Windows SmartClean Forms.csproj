@@ -78,6 +78,7 @@
     <Compile Include="Funktionen\Hilfe.Designer.cs" />
     <Compile Include="Funktionen\lesen_und_schreiben.cs" />
     <Compile Include="Funktionen\SystemSaeuberung.cs" />
+    <Compile Include="Funktionen\tools.cs" />
     <Compile Include="Funktionen\Win10.cs" />
     <Compile Include="HauptFenster.cs">
       <SubType>Form</SubType>
@@ -151,6 +152,7 @@
     <Content Include="Dokumente\Win10_Std_Apps.txt" />
     <Content Include="Dokumente\Win10_Std_Apps_Vergleich.txt" />
     <Content Include="Itzikgur-My-Seven-Downloads-1.ico" />
+    <None Include="Resources\Control-Panel-icon.png" />
     <None Include="Resources\win10.png" />
     <None Include="Resources\39.gif" />
   </ItemGroup>

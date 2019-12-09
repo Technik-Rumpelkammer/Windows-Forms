@@ -73,6 +73,16 @@ namespace Windows_SmartClean_Forms.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Control_Panel_icon {
+            get {
+                object obj = ResourceManager.GetObject("Control-Panel-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap entfernen {
             get {
                 object obj = ResourceManager.GetObject("entfernen", resourceCulture);

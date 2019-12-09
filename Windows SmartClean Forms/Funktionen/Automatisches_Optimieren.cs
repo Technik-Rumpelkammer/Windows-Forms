@@ -95,6 +95,9 @@ namespace Windows_SmartClean.Funktionen
         /// <param name="_Pfad">Pfad zur Datei</param>
         public bool Erstelle_Aufgabe(string _Ang_Benutzer, string _Admin_Benutzer, string _SID, string _Startdatum, string _Startzeit, short _Interval, string _Pfad, List<string> _Optionen, System.Security.SecureString _Passwort)
         {
+            Console.WriteLine("Benutzer: " + _Ang_Benutzer + "\nAdmin_Benutzer: " + Admin_User + "\nSID: " +  _SID +
+                "\nStartdatum: " + _Startdatum + "\nStartzeit: " + _Startzeit + "\nInterval: " + _Interval + "\nPfad: " + _Pfad +
+                "\nAnzahl Optionen: " + _Optionen.Count + "\nPasswort: " + _Passwort.Length);
             try
             {
                 // Get the service on the local machine
@@ -124,7 +127,7 @@ namespace Windows_SmartClean.Funktionen
                     lot.Delay = System.TimeSpan.FromMinutes(1);
                     td.Triggers.Add(lot);
 
-                    td.Actions.Add(new ExecAction(@"C:\Users\BaBa\source\repos\Windows SmartClean Forms\Windows SmartClean Forms\bin\Debug\Windows SmartClean Forms.exe", "1 " + _Ang_Benutzer, null));
+                    td.Actions.Add(new ExecAction(_Pfad + "\\Windows SmartClean Forms.exe", "1 " + _Ang_Benutzer, null));
 
                     string contents = null;
                     if (_Passwort != null)

@@ -12,6 +12,8 @@ namespace Windows_SmartClean.Funktionen
 {
     class Benutzerverwaltung
     {
+        Funktionen.lesen_und_schreiben ls = new lesen_und_schreiben();
+
         public bool Erstelle_Benutzer(string username, string password, string _Gruppe, string displayName, string description, bool canChangePwd, bool pwdExpires)
         {
             try

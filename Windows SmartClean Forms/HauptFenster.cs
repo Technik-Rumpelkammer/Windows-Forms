@@ -33,6 +33,7 @@ namespace Windows_SmartClean_Forms
         Windows_SmartClean.Funktionen.SystemSaeuberung sauber = new Windows_SmartClean.Funktionen.SystemSaeuberung();
         Windows_SmartClean.Funktionen.Automatisches_Optimieren ao = new Windows_SmartClean.Funktionen.Automatisches_Optimieren();
         Windows_SmartClean_Forms.Funktionen.Win10 win10 = new Windows_SmartClean_Forms.Funktionen.Win10();
+        Windows_SmartClean_Forms.Funktionen.tools tools = new Windows_SmartClean_Forms.Funktionen.tools();
 
         List<string> Gew_Gruppen = new List<string>();
 
@@ -520,7 +521,7 @@ namespace Windows_SmartClean_Forms
                         {
                             secure.AppendChar(c);
                         }
-                        if (ao.Erstelle_Aufgabe(AO_comboBox_Benutzer.SelectedItem.ToString(), T1_lbl_ausfrd_Benutzer.Text, Benutzer_SID, AO_Starttag.Value.ToString(), T1_AO_dateTimePicker_Startzeit.Text, 1, "", L_CheckBox, secure))
+                        if (ao.Erstelle_Aufgabe(AO_comboBox_Benutzer.SelectedItem.ToString(), T1_lbl_ausfrd_Benutzer.Text, Benutzer_SID, AO_Starttag.Value.ToString(), T1_AO_dateTimePicker_Startzeit.Text, 1, Directory.GetCurrentDirectory().ToString(), L_CheckBox, secure))
                             MessageBox.Show("Aufgabe wurde erfolgreich erstellt!", "Ausgabe erfolgreich erstellt!");
                         else
                             MessageBox.Show("Aufgabe konnte nicht erstellt werden!", "Fehler beim Erstellen der Aufgabe!");
@@ -698,5 +699,35 @@ namespace Windows_SmartClean_Forms
             }else
                 MessageBox.Show("Es muss ein Schutzlevel für die Privatsphäre gewählt werden!");
         }
+
+        private void Tab1_pic_WinTmp_Click(object sender, EventArgs e)
+        {
+            DialogResult Abfrage = MessageBox.Show("Sollen jetzt die temporären Windowsdateien gelöscht werden?","Sicher?", MessageBoxButtons.YesNo);
+            if(Abfrage == DialogResult.OK)
+                sauber.Loesche_Windows_Tmp();
+              //  Ende if, ob die Abfrage ja war    
+        }   //  Ende Funktion
+
+        private void Tab1_pic_BenutzerTmp_Click(object sender, EventArgs e)
+        {
+            DialogResult Abfrage = MessageBox.Show("Sollen jetzt die temporären Benutzerdateien gelöscht werden?", "Sicher?", MessageBoxButtons.YesNo);
+            if (Abfrage == DialogResult.OK)
+                sauber.Loesche_Tmp_Benutzer_Daten(Benutzer);
+            //  Ende if, ob die Abfrage ja war 
+        }
+
+        private void Tab4_Starte_Win_Optimierung_Click(object sender, EventArgs e)
+        {
+            //bv.Benutzer_Entfernen("Keule", "Benutzer");
+            //aktualisiere_Benutzer_Und_Gruppen_in_Tree();
+        }
+
+        private void Tab3_Deaktiviere_Superfetch_Click(object sender, EventArgs e)
+        {
+            tools.Deaktiviere_Superfetch();
+            MessageBox.Show("Superfetch wurde deaktiviert!");
+        }
+
+        
     }
 }
